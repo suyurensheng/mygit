@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8E5F803C1C8D0D0800B3FDE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F803B1C8D0D0800B3FDE7 /* main.m */; };
-		8E5F80421C8D0D0800B3FDE7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F80411C8D0D0800B3FDE7 /* ViewController.m */; };
 		8E5F80451C8D0D0800B3FDE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5F80431C8D0D0800B3FDE7 /* Main.storyboard */; };
 		8E5F80471C8D0D0800B3FDE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5F80461C8D0D0800B3FDE7 /* Assets.xcassets */; };
 		8E5F804A1C8D0D0800B3FDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5F80481C8D0D0800B3FDE7 /* LaunchScreen.storyboard */; };
@@ -38,8 +37,6 @@
 /* Begin PBXFileReference section */
 		8E5F80371C8D0D0800B3FDE7 /* Medicine_doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medicine_doctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5F803B1C8D0D0800B3FDE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8E5F80401C8D0D0800B3FDE7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8E5F80411C8D0D0800B3FDE7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8E5F80441C8D0D0800B3FDE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E5F80461C8D0D0800B3FDE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E5F80491C8D0D0800B3FDE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,8 +107,6 @@
 				8E5F80711C8D0E1000B3FDE7 /* Models */,
 				8E5F80721C8D0E1000B3FDE7 /* MyThird */,
 				8E5F80731C8D0E1000B3FDE7 /* Public */,
-				8E5F80401C8D0D0800B3FDE7 /* ViewController.h */,
-				8E5F80411C8D0D0800B3FDE7 /* ViewController.m */,
 				8E5F80431C8D0D0800B3FDE7 /* Main.storyboard */,
 				8E5F80461C8D0D0800B3FDE7 /* Assets.xcassets */,
 				8E5F80481C8D0D0800B3FDE7 /* LaunchScreen.storyboard */,
@@ -325,7 +320,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E5F80421C8D0D0800B3FDE7 /* ViewController.m in Sources */,
 				8E5F80781C8D0E3B00B3FDE7 /* BaseViewController.m in Sources */,
 				8E5F803C1C8D0D0800B3FDE7 /* main.m in Sources */,
 				8E5F80751C8D0E1000B3FDE7 /* AppDelegate.m in Sources */,
@@ -552,6 +546,7 @@
 				8E5F80661C8D0D0800B3FDE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E5F80671C8D0D0800B3FDE7 /* Build configuration list for PBXNativeTarget "Medicine_doctorTests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +555,7 @@
 				8E5F80691C8D0D0800B3FDE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E5F806A1C8D0D0800B3FDE7 /* Build configuration list for PBXNativeTarget "Medicine_doctorUITests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +564,7 @@
 				8E5F806C1C8D0D0800B3FDE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
