@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DemoViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    DemoViewController *dvc=[[DemoViewController alloc]init];
+    UINavigationController *nvc=[[UINavigationController alloc]initWithRootViewController:dvc];
+    self.window.rootViewController=nvc;
     return YES;
 }
 

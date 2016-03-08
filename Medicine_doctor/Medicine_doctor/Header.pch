@@ -9,5 +9,6 @@
 #ifndef Header_pch
 #define Header_pch
 
+#import"commonDefine.h"
 
 #endif
