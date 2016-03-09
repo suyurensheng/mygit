@@ -12,6 +12,7 @@
 
     UITableView *_mainTable;
     NSArray *_list;
+    NSArray *_viewControllers;
 }
 
 @end

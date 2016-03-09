@@ -20,6 +20,7 @@
     self.title=@"demo";
 
     _list=@[@"即时通讯",@"二维码"];
+    _viewControllers=@[@"",@""];
     
     _mainTable=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, MAIN_SCREAM_WIDTH, MAIN_SCREAM_HEIGHT) style:UITableViewStylePlain];
     _mainTable.dataSource=self;
@@ -44,18 +45,8 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    switch (indexPath.row) {
-        case 0:{
-        
-        }
-            break;
-        case 1:{
-        
-        }
-            break;
-        default:
-            break;
-    }
+    UIViewController *vc=[[NSClassFromString([_viewControllers objectAtIndex:indexPath.row]) alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
