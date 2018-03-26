@@ -64,18 +64,18 @@
     
     [AMapServices sharedServices].apiKey=@"26e92fbc21e3e87c36113e96cfc5b067";
     
-    VideoEntity *info=[[VideoEntity alloc]init];
-    info.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
-    info.name=@"test";
-    VideoEntity *info2=[[VideoEntity alloc]init];
-    info2.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
-    info2.name=@"test2";
-    VideoEntity *info3=[[VideoEntity alloc]init];
-    info3.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
-    info3.name=@"test3";
-    [[DownloadManager   sharedManager] addTaskWithInfo:info];
-    [[DownloadManager   sharedManager] addTaskWithInfo:info2];
-    [[DownloadManager   sharedManager] addTaskWithInfo:info3];
+//    VideoEntity *info=[[VideoEntity alloc]init];
+//    info.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
+//    info.name=@"test";
+//    VideoEntity *info2=[[VideoEntity alloc]init];
+//    info2.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
+//    info2.name=@"test2";
+//    VideoEntity *info3=[[VideoEntity alloc]init];
+//    info3.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
+//    info3.name=@"test3";
+//    [[DownloadManager   sharedManager] addTaskWithInfo:info];
+//    [[DownloadManager   sharedManager] addTaskWithInfo:info2];
+//    [[DownloadManager   sharedManager] addTaskWithInfo:info3];
 
 //    [[HttpManager sharedHttpManager] getNetSpeedComplete:^(CGFloat speedin, CGFloat speedout) {
 //        NSLog(@"下载：%f  上传 :%f",speedin,speedout);
