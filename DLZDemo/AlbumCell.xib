@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumCell" id="QRl-yw-9Qb" customClass="AlbumCell">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PKb-iH-64V">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHy-bY-jw6">
+                        <rect key="frame" x="50" y="0.0" width="30" height="30"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_nor" translatesAutoresizingMaskIntoConstraints="NO" id="9Ua-pB-5te">
+                                <rect key="frame" x="3.5" y="3.5" width="23" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="MUC-9B-lV8"/>
+                                    <constraint firstAttribute="height" constant="23" id="x07-Pd-qdF"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MwV-d9-GMc">
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                <connections>
+                                    <action selector="choose:" destination="QRl-yw-9Qb" eventType="touchUpInside" id="7hW-pw-eNS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MwV-d9-GMc" firstAttribute="leading" secondItem="DHy-bY-jw6" secondAttribute="leading" id="K5b-cr-6hc"/>
+                            <constraint firstItem="9Ua-pB-5te" firstAttribute="centerX" secondItem="DHy-bY-jw6" secondAttribute="centerX" id="MIL-MS-Lh3"/>
+                            <constraint firstItem="MwV-d9-GMc" firstAttribute="top" secondItem="DHy-bY-jw6" secondAttribute="top" id="VJg-OE-B9x"/>
+                            <constraint firstItem="9Ua-pB-5te" firstAttribute="centerY" secondItem="DHy-bY-jw6" secondAttribute="centerY" id="fYz-Lp-jyU"/>
+                            <constraint firstAttribute="bottom" secondItem="MwV-d9-GMc" secondAttribute="bottom" id="hMD-Ua-5AH"/>
+                            <constraint firstAttribute="width" constant="30" id="kec-ex-jak"/>
+                            <constraint firstAttribute="trailing" secondItem="MwV-d9-GMc" secondAttribute="trailing" id="rke-TQ-hBU"/>
+                            <constraint firstAttribute="height" constant="30" id="yak-iR-ewO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="PKb-iH-64V" firstAttribute="top" secondItem="QRl-yw-9Qb" secondAttribute="top" id="P0f-fk-t8D"/>
+                <constraint firstAttribute="bottom" secondItem="PKb-iH-64V" secondAttribute="bottom" id="Uuu-zs-ift"/>
+                <constraint firstItem="DHy-bY-jw6" firstAttribute="top" secondItem="QRl-yw-9Qb" secondAttribute="top" id="cT2-7Z-jCO"/>
+                <constraint firstAttribute="trailing" secondItem="DHy-bY-jw6" secondAttribute="trailing" id="l0u-Xo-RYq"/>
+                <constraint firstItem="PKb-iH-64V" firstAttribute="leading" secondItem="QRl-yw-9Qb" secondAttribute="leading" id="oF1-5h-zpN"/>
+                <constraint firstAttribute="trailing" secondItem="PKb-iH-64V" secondAttribute="trailing" id="zrP-xQ-Ein"/>
+            </constraints>
+            <size key="customSize" width="187" height="162.5"/>
+            <connections>
+                <outlet property="icon" destination="PKb-iH-64V" id="DyI-Bg-D16"/>
+                <outlet property="selIcon" destination="9Ua-pB-5te" id="3FU-Cd-7ei"/>
+            </connections>
+            <point key="canvasLocation" x="90.5" y="44.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="album_nor" width="23" height="23"/>
+    </resources>
+</document>

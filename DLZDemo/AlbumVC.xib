@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="F6B-19-axT" customClass="AlbumVC">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="dVv-s3-IfO"/>
+                <viewControllerLayoutGuide type="bottom" id="5cl-fy-gfb"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="rtL-iS-B1N">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="caa-J2-AVc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="093-e8-2Dd">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="F6B-19-axT" id="Luf-1V-dqT"/>
+                            <outlet property="delegate" destination="F6B-19-axT" id="425-0b-w0j"/>
+                        </connections>
+                    </collectionView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4di-s0-d6g">
+                        <rect key="frame" x="0.0" y="618" width="187.5" height="49"/>
+                        <color key="backgroundColor" white="1" alpha="0.69890415268456374" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="49" id="Hqq-91-0NV"/>
+                        </constraints>
+                        <state key="normal" title="完成"/>
+                        <connections>
+                            <action selector="complete:" destination="F6B-19-axT" eventType="touchUpInside" id="PEN-8S-P6V"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfd-Wp-o5S">
+                        <rect key="frame" x="187.5" y="618" width="187.5" height="49"/>
+                        <color key="backgroundColor" white="1" alpha="0.69798657718120805" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="49" id="Z72-Ky-nJ3"/>
+                        </constraints>
+                        <state key="normal" title="预览"/>
+                        <connections>
+                            <action selector="check:" destination="F6B-19-axT" eventType="touchUpInside" id="Vxm-Mr-SG7"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="5cl-fy-gfb" firstAttribute="top" secondItem="4di-s0-d6g" secondAttribute="bottom" id="I8h-og-fI7"/>
+                    <constraint firstItem="5cl-fy-gfb" firstAttribute="top" secondItem="tfd-Wp-o5S" secondAttribute="bottom" id="OtO-ef-M7o"/>
+                    <constraint firstAttribute="trailing" secondItem="tfd-Wp-o5S" secondAttribute="trailing" id="Sob-Tx-K6m"/>
+                    <constraint firstItem="caa-J2-AVc" firstAttribute="leading" secondItem="rtL-iS-B1N" secondAttribute="leading" id="cPG-73-Te1"/>
+                    <constraint firstItem="5cl-fy-gfb" firstAttribute="top" secondItem="caa-J2-AVc" secondAttribute="bottom" constant="49" id="hwu-Qp-XL2"/>
+                    <constraint firstItem="tfd-Wp-o5S" firstAttribute="leading" secondItem="4di-s0-d6g" secondAttribute="trailing" id="qhx-B4-hNb"/>
+                    <constraint firstAttribute="trailing" secondItem="caa-J2-AVc" secondAttribute="trailing" id="rQY-nk-fQl"/>
+                    <constraint firstItem="caa-J2-AVc" firstAttribute="top" secondItem="rtL-iS-B1N" secondAttribute="top" id="ulA-K5-Lxc"/>
+                    <constraint firstItem="tfd-Wp-o5S" firstAttribute="width" secondItem="4di-s0-d6g" secondAttribute="width" id="xDm-bI-4IZ"/>
+                    <constraint firstItem="4di-s0-d6g" firstAttribute="leading" secondItem="rtL-iS-B1N" secondAttribute="leading" id="xh7-mU-QbL"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="collection" destination="caa-J2-AVc" id="dV2-kf-v2E"/>
+            </connections>
+            <point key="canvasLocation" x="49.5" y="90.5"/>
+        </viewController>
+    </objects>
+</document>

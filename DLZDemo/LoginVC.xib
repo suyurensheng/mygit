@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="VH4-aL-Frp" customClass="LoginVC">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="g9y-GZ-rf9"/>
+                <viewControllerLayoutGuide type="bottom" id="Xin-zT-wrs"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="WO8-ZJ-B2t">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="doM-fM-Tc0">
+                        <frame key="frameInset" minX="72" minY="144" height="86" maxX="82"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Xm-Y6-1Qy">
+                        <frame key="frameInset" minX="47.64%" minY="254" width="142" height="66"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="0.2274509804" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="登陆"/>
+                        <connections>
+                            <action selector="login:" destination="VH4-aL-Frp" eventType="touchUpInside" id="t1A-Cy-OYU"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            </view>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <size key="freeformSize" width="375" height="667"/>
+            <connections>
+                <outlet property="inView" destination="doM-fM-Tc0" id="ZAO-2c-0YE"/>
+            </connections>
+            <point key="canvasLocation" x="29.5" y="29.5"/>
+        </viewController>
+    </objects>
+</document>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="x4o-sZ-PL9" customClass="DataVC">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="par-f0-G1R"/>
+                <viewControllerLayoutGuide type="bottom" id="yEo-UF-tth"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="J0Q-PP-efo">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fmc-ef-93X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="x4o-sZ-PL9" id="5Z8-uo-n1o"/>
+                            <outlet property="delegate" destination="x4o-sZ-PL9" id="Rc3-9f-3qU"/>
+                        </connections>
+                    </tableView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1G4-09-K9W">
+                        <rect key="frame" x="47" y="607" width="60" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="OpA-wQ-q7R"/>
+                            <constraint firstAttribute="width" constant="60" id="unf-zN-rjA"/>
+                        </constraints>
+                        <state key="normal" title="new"/>
+                        <connections>
+                            <action selector="newData:" destination="x4o-sZ-PL9" eventType="touchUpInside" id="o4M-K0-0ST"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGJ-AA-OQx">
+                        <rect key="frame" x="265" y="607" width="60" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="9pD-D4-8MI"/>
+                            <constraint firstAttribute="width" constant="60" id="wiL-bh-QeH"/>
+                        </constraints>
+                        <state key="normal" title="delete"/>
+                        <connections>
+                            <action selector="deleteData:" destination="x4o-sZ-PL9" eventType="touchUpInside" id="ORH-mA-8II"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="yEo-UF-tth" firstAttribute="top" secondItem="1G4-09-K9W" secondAttribute="bottom" constant="20" id="5Ts-ri-0qV"/>
+                    <constraint firstItem="yEo-UF-tth" firstAttribute="top" secondItem="MGJ-AA-OQx" secondAttribute="bottom" constant="20" id="6zM-t1-qEs"/>
+                    <constraint firstItem="yEo-UF-tth" firstAttribute="top" secondItem="fmc-ef-93X" secondAttribute="bottom" constant="100" id="DDF-FY-4xm"/>
+                    <constraint firstItem="fmc-ef-93X" firstAttribute="top" secondItem="J0Q-PP-efo" secondAttribute="top" id="K7J-Nz-8j7"/>
+                    <constraint firstAttribute="trailing" secondItem="fmc-ef-93X" secondAttribute="trailing" id="MRq-C7-nCw"/>
+                    <constraint firstItem="1G4-09-K9W" firstAttribute="leading" secondItem="J0Q-PP-efo" secondAttribute="leadingMargin" constant="31" id="bcw-Zz-fsU"/>
+                    <constraint firstItem="fmc-ef-93X" firstAttribute="leading" secondItem="J0Q-PP-efo" secondAttribute="leading" id="dgI-YZ-AMu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="MGJ-AA-OQx" secondAttribute="trailing" constant="34" id="fe0-Cu-Wsu"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="list" destination="fmc-ef-93X" id="AzJ-6X-m4g"/>
+            </connections>
+            <point key="canvasLocation" x="-33.5" y="-6.5"/>
+        </viewController>
+    </objects>
+</document>

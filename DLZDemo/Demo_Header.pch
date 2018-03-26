@@ -1,0 +1,23 @@
+//
+//  Demo_Header.pch
+//  DLZDemo
+//
+//  Created by 董力祯 on 2016/11/4.
+//  Copyright © 2016年 董力祯. All rights reserved.
+//
+
+#ifndef Demo_Header_pch
+#define Demo_Header_pch
+
+#define MAIN_SCREAM_WIDTH    [UIScreen mainScreen].bounds.size.width
+
+#define MAIN_SCREAM_HEIGHT  [UIScreen mainScreen].bounds.size.height
+
+#import "ErrorEntity.h"
+
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
+#import "GPUImage.h"
+#import "UIImageView+DLZPlus.h"
+#endif
