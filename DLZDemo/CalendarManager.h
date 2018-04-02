@@ -19,7 +19,6 @@
  *  @param content   事件内容
  *  @param startTime  开始时间
  *  @param endTime    结束时间
- *  @param allDay     是否全天
  *  @param times 闹钟集合
  *  @param complete     添加结果反馈
  */

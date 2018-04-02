@@ -35,7 +35,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+//
+
     ViewController *vc=[[ViewController alloc]init];
     BaseNavVC *nvc=[[BaseNavVC alloc]initWithRootViewController:vc];
     self.window.rootViewController=nvc;
@@ -49,7 +50,9 @@
         center.delegate = self;
         [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
             if( !error ){
-                [[UIApplication sharedApplication] registerForRemoteNotifications];
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [[UIApplication sharedApplication] registerForRemoteNotifications];
+                });
             }
         }];
     }
@@ -64,18 +67,56 @@
     
     [AMapServices sharedServices].apiKey=@"26e92fbc21e3e87c36113e96cfc5b067";
     
-//    VideoEntity *info=[[VideoEntity alloc]init];
-//    info.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
-//    info.name=@"test";
-//    VideoEntity *info2=[[VideoEntity alloc]init];
-//    info2.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
-//    info2.name=@"test2";
-//    VideoEntity *info3=[[VideoEntity alloc]init];
-//    info3.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
-//    info3.name=@"test3";
-//    [[DownloadManager   sharedManager] addTaskWithInfo:info];
-//    [[DownloadManager   sharedManager] addTaskWithInfo:info2];
-//    [[DownloadManager   sharedManager] addTaskWithInfo:info3];
+    
+    [[DownloadManager sharedManager] checkAndBeganTheDownloadTasks];
+    VideoEntity *info=[[VideoEntity alloc]init];
+    info.identifyid=@"78789";
+    info.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
+    info.name=@"test";
+    VideoEntity *info2=[[VideoEntity alloc]init];
+    info2.identifyid=@"78745";
+    info2.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
+    info2.name=@"test2";
+    VideoEntity *info3=[[VideoEntity alloc]init];
+    info3.identifyid=@"78676";
+    info3.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
+    info3.name=@"test3";
+    
+    [[DownloadManager   sharedManager] addTaskWithInfo:info complete:^(ErrorEntity *error) {
+    }];
+    [[DownloadManager   sharedManager] addTaskWithInfo:info2 complete:^(ErrorEntity *error) {
+    }];
+    [[DownloadManager   sharedManager] addTaskWithInfo:info3 complete:^(ErrorEntity *error) {
+    }];
+    
+    UILabel *testView=[[UILabel alloc]initWithFrame:CGRectMake(10, 200, MAIN_SCREAM_WIDTH-20, 100)];
+    testView.backgroundColor=[UIColor whiteColor];
+    testView.numberOfLines=0;
+    [self.window.rootViewController.view addSubview:testView];
+    
+    [[DownloadManager sharedManager] addDownloadStatusChange:^(NSArray<VideoEntity *> *tasks) {
+        NSMutableArray  *array=[[NSMutableArray alloc]init];
+        
+        for (VideoEntity *video in tasks) {
+            switch (video.status) {
+                case 0:{
+                    [array addObject:[NSString stringWithFormat:@"视频id：%@ 进度：等待下载",video.identifyid]];
+                }
+                    break;
+                case 1:{
+                    [array addObject:[NSString stringWithFormat:@"视频id：%@ 进度：%f",video.identifyid,video.progress]];
+                }
+                    break;
+                case 2:{
+                    [array addObject:[NSString stringWithFormat:@"视频id：%@ 进度：已完成",video.identifyid]];
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+        testView.text=[array componentsJoinedByString:@"\n"];
+    }];
 
 //    [[HttpManager sharedHttpManager] getNetSpeedComplete:^(CGFloat speedin, CGFloat speedout) {
 //        NSLog(@"下载：%f  上传 :%f",speedin,speedout);
@@ -87,6 +128,7 @@
             NSLog(@"添加成功");
         }
     }];
+    
     return YES;
 }
 -(void)test{
@@ -134,6 +176,12 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [[CallManager sharedManager] applicationDidEnterBackground:application];
+    
+    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^(){
+        //程序在10分钟内未被系统关闭或者强制关闭，则程序会调用此代码块，可以在这里做一些保存或者清理工作
+        NSLog(@"程序关闭1");
+        [[DownloadManager sharedManager] cancel];
+    }];
 }
 
 
@@ -150,10 +198,12 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    NSLog(@"程序关闭2");
+    [[DownloadManager sharedManager] cancel];
 }
-
 //-(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
 //
 //    return UIInterfaceOrientationMaskAllButUpsideDown;
 //}
+
 @end

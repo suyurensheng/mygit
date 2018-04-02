@@ -41,6 +41,11 @@
     return [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:name]];
 }
 
++(void)deleteDataWithName:(NSString *)name{
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:name];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 +(void)getAlbumImages:(void(^)(NSArray *requestArray,ErrorEntity *error))back{
     

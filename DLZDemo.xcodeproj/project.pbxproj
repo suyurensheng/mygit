@@ -53,6 +53,7 @@
 		8E5E5AD9201EC62900535CA9 /* MyMoveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5E5AD8201EC62900535CA9 /* MyMoveVC.m */; };
 		8E5E5AE0201F0DC600535CA9 /* DataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5E5ADF201F0DC600535CA9 /* DataVC.m */; };
 		8E61BB971DBA0273003D0BE2 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E61BB961DBA0273003D0BE2 /* UserNotifications.framework */; };
+		8E72E7D72071F79200CF8F8B /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8E72E7D62071F79100CF8F8B /* ding.wav */; };
 		8E8239BD1EF229D600E538FE /* ApplicationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8239B71EF229D600E538FE /* ApplicationUtils.m */; };
 		8E8239BE1EF229D600E538FE /* DataUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8239B91EF229D600E538FE /* DataUtils.m */; };
 		8E8239CE1EF230A800E538FE /* ErrorEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8239CB1EF230A800E538FE /* ErrorEntity.m */; };
@@ -349,6 +350,7 @@
 		8E5E5ADF201F0DC600535CA9 /* DataVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataVC.m; sourceTree = "<group>"; };
 		8E61BB951DB9F911003D0BE2 /* DLZDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DLZDemo.entitlements; sourceTree = "<group>"; };
 		8E61BB961DBA0273003D0BE2 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		8E72E7D62071F79100CF8F8B /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
 		8E8239B61EF229D600E538FE /* ApplicationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationUtils.h; sourceTree = "<group>"; };
 		8E8239B71EF229D600E538FE /* ApplicationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationUtils.m; sourceTree = "<group>"; };
 		8E8239B81EF229D600E538FE /* DataUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUtils.h; sourceTree = "<group>"; };
@@ -523,21 +525,22 @@
 				8E61BB951DB9F911003D0BE2 /* DLZDemo.entitlements */,
 				8E39590D1DB8B63300BA180A /* AppDelegate.h */,
 				8E39590E1DB8B63300BA180A /* AppDelegate.m */,
+				8EDD5A4D1DC2E648004B7C25 /* DownloadManager.h */,
+				8EDD5A4E1DC2E648004B7C25 /* DownloadManager.m */,
+				8E72E7D62071F79100CF8F8B /* ding.wav */,
 				8E985F57205BB0DC00DE0CBC /* BaseNavVC.h */,
 				8E985F58205BB0DC00DE0CBC /* BaseNavVC.m */,
 				8E3959271DB8B70200BA180A /* ViewController.h */,
 				8E3959281DB8B70200BA180A /* ViewController.m */,
-				8EC4C823203F9AEF009B1D7D /* CalendarManager.h */,
-				8EC4C824203F9AEF009B1D7D /* CalendarManager.m */,
 				8E53517B1EE155BE003DC4EB /* BaseVC.h */,
 				8E53517C1EE155BE003DC4EB /* BaseVC.m */,
+				8EB4D6822069F6D2003A180E /* calendar */,
 				8E53513F1EE002D5003DC4EB /* call */,
 				8E5351401EE002E5003DC4EB /* map */,
 				8E5351411EE003CD003DC4EB /* chat */,
 				8E5351421EE003D6003DC4EB /* filter */,
 				8E5351431EE003F0003DC4EB /* bluetooth */,
 				8E5351451EE0042B003DC4EB /* live */,
-				8EDD5A501DC2ECDD004B7C25 /* download */,
 				8E032B891FBC04D30057F9A2 /* camera */,
 				8E5E5AD6201EC51F00535CA9 /* moves */,
 				8E4414E7202011200055ADDB /* 二维码 */,
@@ -924,13 +927,13 @@
 			path = CallManger;
 			sourceTree = "<group>";
 		};
-		8EDD5A501DC2ECDD004B7C25 /* download */ = {
+		8EB4D6822069F6D2003A180E /* calendar */ = {
 			isa = PBXGroup;
 			children = (
-				8EDD5A4D1DC2E648004B7C25 /* DownloadManager.h */,
-				8EDD5A4E1DC2E648004B7C25 /* DownloadManager.m */,
+				8EC4C823203F9AEF009B1D7D /* CalendarManager.h */,
+				8EC4C824203F9AEF009B1D7D /* CalendarManager.m */,
 			);
-			name = download;
+			name = calendar;
 			sourceTree = "<group>";
 		};
 		8EF28F211EC5C798008CD891 /* Custom Filters */ = {
@@ -1072,6 +1075,7 @@
 				8EE708141FF0CAD300B89457 /* AlbumCheckView.xib in Resources */,
 				8EE708131FF0CAD300B89457 /* AlbumVC.xib in Resources */,
 				8EB001041DD06CA400921A25 /* VoiceView.xib in Resources */,
+				8E72E7D72071F79200CF8F8B /* ding.wav in Resources */,
 				8EB001021DD06CA400921A25 /* VideoView.xib in Resources */,
 				8ED7DC421DE3F6F900B28EC9 /* ChatVC.xib in Resources */,
 				8EE708191FF0CB3600B89457 /* ImageCheckItem.xib in Resources */,

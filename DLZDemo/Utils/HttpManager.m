@@ -148,6 +148,7 @@
     }];
 }
 
+/**单位：k/s*/
 -(void)getNetSpeedComplete:(void (^)(CGFloat ,CGFloat))complete{
 
     _complete=complete;

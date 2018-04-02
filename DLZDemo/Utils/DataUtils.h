@@ -36,6 +36,10 @@ typedef enum {
 /**读缓存*/
 +(id)readDataWithName:(NSString*)name;
 
+/**删除缓存*/
++(void)deleteDataWithName:(NSString*)name;
+
+
 /**获取相册图片*/
 +(void)getAlbumImages:(void(^)(NSArray *requestArray,ErrorEntity *error))back;
 
