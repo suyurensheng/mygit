@@ -23,11 +23,8 @@
         self.name=[aDecoder decodeObjectForKey:@"name"];
         self.identifyid=[aDecoder decodeObjectForKey:@"identifyid"];
         self.orginUrl=[aDecoder decodeObjectForKey:@"orginUrl"];
-        self.savePath=[aDecoder decodeObjectForKey:@"savePath"];
-        self.cachePath=[aDecoder decodeObjectForKey:@"cachePath"];
+        self.cacheData=[aDecoder decodeObjectForKey:@"cacheData"];
         self.status=[aDecoder decodeIntegerForKey:@"status"];
-        self.progress=[aDecoder decodeFloatForKey:@"progress"];
-        self.task=[aDecoder decodeObjectForKey:@"task"];
     }
     return self;
 }
@@ -35,11 +32,28 @@
     [aCoder encodeObject:self.name forKey:@"name"];
     [aCoder encodeObject:self.identifyid forKey:@"identifyid"];
     [aCoder encodeObject:self.orginUrl forKey:@"orginUrl"];
-    [aCoder encodeObject:self.savePath forKey:@"savePath"];
-    [aCoder encodeObject:self.cachePath forKey:@"cachePath"];
+    [aCoder encodeObject:self.cacheData forKey:@"cacheData"];
     [aCoder encodeInteger:self.status forKey:@"status"];
-    [aCoder encodeFloat:self.progress forKey:@"progress"];
-    [aCoder encodeObject:self.task forKey:@"task"];
+}
+
+-(CGFloat)progress{
+    if (_task) {
+        NSInteger recive=_task.countOfBytesReceived;
+        NSInteger all=_task.countOfBytesExpectedToReceive;
+        if (all<=0) {
+            return 0;
+        }else{
+            return 100*recive/all;
+        }
+    }
+    return 0.0f;
+}
+-(NSString*)filePath{
+    
+    NSString *path=[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"videos"];
+    [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    path=[path stringByAppendingPathComponent:_name];
+    return path;
 }
 
 @end
@@ -113,27 +127,45 @@
         video.task=[self addTask:video];
     }
 }
+-(NSData*)getResumeData:(NSData*)data{
+
+    NSString *str=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    NSString *oldsize=[[[[str componentsSeparatedByString:@"<key>NSURLSessionResumeBytesReceived</key>\n\t<integer>"] lastObject] componentsSeparatedByString:@"</integer>"] firstObject];
+    
+    NSString *tempPath=[[[[str componentsSeparatedByString:@"<key>NSURLSessionResumeInfoTempFileName</key>\n\t<string>"] lastObject] componentsSeparatedByString:@"</string>"] firstObject];
+    tempPath=[NSTemporaryDirectory() stringByAppendingPathComponent:tempPath];
+    NSString *newsize=[NSString stringWithFormat:@"%llu",[[[NSFileManager defaultManager] attributesOfItemAtPath:tempPath error:nil] fileSize]];
+    str=[str stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"<key>NSURLSessionResumeBytesReceived</key>\n\t<integer>%@</integer>",oldsize] withString:[NSString stringWithFormat:@"<key>NSURLSessionResumeBytesReceived</key>\n\t<integer>%@</integer>",newsize]];
+    
+    return [str dataUsingEncoding:NSUTF8StringEncoding];
+}
 -(NSURLSessionDownloadTask*)addTask:(VideoEntity *)info{
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:info.orginUrl]];
     NSURLSessionDownloadTask *_downloadTask;
-    if ([[NSFileManager defaultManager] fileExistsAtPath:info.cachePath]) {
-        NSData *data=[NSData dataWithContentsOfFile:info.cachePath];
+    if (info.cacheData) {
+
+        NSData *data=[self getResumeData:info.cacheData];
         _downloadTask=[_manager downloadTaskWithResumeData:data progress:^(NSProgress * _Nonnull downloadProgress) {
             [self downLoadProgressChange];
         } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-            return [NSURL fileURLWithPath:info.savePath];
+            
+            return [NSURL fileURLWithPath:info.filePath];
         } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
             if (!error) {
                 [self downLoadComplete:filePath];
-                [[NSFileManager defaultManager] removeItemAtPath:info.cachePath error:nil];
             }
         }];
     }else{
         _downloadTask =[_manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
             [self downLoadProgressChange];
         } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-            return [NSURL fileURLWithPath:info.savePath];
+            
+            NSString *path=[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"videos"];
+            [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+            path=[path stringByAppendingPathComponent:info.name];
+            return [NSURL fileURLWithPath:path];
         } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
             if (!error) {
                 [self downLoadComplete:filePath];
@@ -151,15 +183,6 @@
             return;
         }
     }
-    
-    NSString *savePath=[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"videos"];
-    [[NSFileManager defaultManager] createDirectoryAtPath:savePath withIntermediateDirectories:YES attributes:nil error:nil];
-    
-    NSString *cachePath=[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"caches"];
-    [[NSFileManager defaultManager] createDirectoryAtPath:cachePath withIntermediateDirectories:YES attributes:nil error:nil];
-    
-    info.savePath=[savePath stringByAppendingPathComponent:info.name];
-    info.cachePath=[cachePath stringByAppendingPathComponent:info.name];
     if (_ingList.count<MAX_DOWN_NUM) {
         info.status=1;
         info.task=[self addTask:info];
@@ -173,15 +196,14 @@
 -(void)downLoadProgressChange{
     
     for (VideoEntity *video in _allList) {
-        if (video.status==1) {
-            NSURLSessionDownloadTask *task=video.task;
-            NSInteger recive=task.countOfBytesReceived;
-            NSInteger all=task.countOfBytesExpectedToReceive;
-            if (all<=0) {
-                video.progress=0;
-            }else{
-                video.progress=100*recive/all;
-            }
+        if (video.status==1&&!video.cacheData&&video.progress>0) {
+            [video.task cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
+                if (resumeData) {
+                    video.cacheData=resumeData;
+                    video.task=[self addTask:video];
+                }
+                [DataUtils writeData:_allList WithName:DOWN_LIST_KEY_ALL];
+            }];
         }
     }
     dispatch_sync(dispatch_get_main_queue(), ^{
@@ -195,9 +217,8 @@
     NSString *url=[[responsePath.absoluteString componentsSeparatedByString:@"file://"] lastObject];
     
     for (VideoEntity *video in _ingList) {
-        if ([video.savePath isEqualToString:url]) {
+        if ([video.name isEqualToString:[[url componentsSeparatedByString:@"/"]lastObject]]) {
             video.status=2;
-            video.task=nil;
             [_ingList removeObject:video];
             break;
         }
@@ -217,16 +238,10 @@
         changeblock(_allList);
     }
     [self playDownloadSound];
-}
--(void)cancel{
-    for (VideoEntity *video in _ingList) {
-        [video.task cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
-            [resumeData writeToFile:video.cachePath  atomically:YES];
-        }];
-        video.task=nil;
-    }
+    
     [DataUtils writeData:_allList WithName:DOWN_LIST_KEY_ALL];
 }
+
 -(void)addDownloadStatusChange:(void (^)(NSArray<VideoEntity *> *))change{
     
     void(^changeblock)(NSArray<VideoEntity *> *list)=change;
@@ -234,6 +249,7 @@
         _completeList=[[NSMutableArray alloc]init];
     }
     [_completeList addObject:changeblock];
+    changeblock(_allList);
 }
 
 -(void)playDownloadSound{

@@ -500,6 +500,16 @@
 			name = camera;
 			sourceTree = "<group>";
 		};
+		8E21C0EE2074CF99009C9D0D /* download */ = {
+			isa = PBXGroup;
+			children = (
+				8EDD5A4D1DC2E648004B7C25 /* DownloadManager.h */,
+				8EDD5A4E1DC2E648004B7C25 /* DownloadManager.m */,
+				8E72E7D62071F79100CF8F8B /* ding.wav */,
+			);
+			name = download;
+			sourceTree = "<group>";
+		};
 		8E3958FE1DB8B63300BA180A = {
 			isa = PBXGroup;
 			children = (
@@ -525,15 +535,13 @@
 				8E61BB951DB9F911003D0BE2 /* DLZDemo.entitlements */,
 				8E39590D1DB8B63300BA180A /* AppDelegate.h */,
 				8E39590E1DB8B63300BA180A /* AppDelegate.m */,
-				8EDD5A4D1DC2E648004B7C25 /* DownloadManager.h */,
-				8EDD5A4E1DC2E648004B7C25 /* DownloadManager.m */,
-				8E72E7D62071F79100CF8F8B /* ding.wav */,
 				8E985F57205BB0DC00DE0CBC /* BaseNavVC.h */,
 				8E985F58205BB0DC00DE0CBC /* BaseNavVC.m */,
 				8E3959271DB8B70200BA180A /* ViewController.h */,
 				8E3959281DB8B70200BA180A /* ViewController.m */,
 				8E53517B1EE155BE003DC4EB /* BaseVC.h */,
 				8E53517C1EE155BE003DC4EB /* BaseVC.m */,
+				8E21C0EE2074CF99009C9D0D /* download */,
 				8EB4D6822069F6D2003A180E /* calendar */,
 				8E53513F1EE002D5003DC4EB /* call */,
 				8E5351401EE002E5003DC4EB /* map */,

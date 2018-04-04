@@ -12,7 +12,7 @@
 
 #import <AFNetworking.h>
 
-@interface VideoEntity : NSObject<NSCoding,NSCopying>
+@interface VideoEntity : NSObject<NSCoding>
 
 @property(nonatomic,strong)NSString *identifyid;
 
@@ -20,19 +20,19 @@
 
 @property(nonatomic,strong)NSString *name;
 
-
-
-@property(nonatomic,strong)NSString *savePath;
-
-@property(nonatomic,strong)NSString *cachePath;
-
 /**0:新建   1:下载中  2:已完成*/
 @property(nonatomic,assign)NSInteger status;
 
-/**0~100*/
-@property(nonatomic,assign)CGFloat progress;
+
+@property(nonatomic,strong)NSData *cacheData;
+
 
 @property(nonatomic,strong)NSURLSessionDownloadTask* task;
+
+/**0~100*/
+-(CGFloat)progress;
+
+-(NSString*)filePath;
 
 @end
 
@@ -45,8 +45,6 @@
 
 
 -(void)addTaskWithInfo:(VideoEntity*)info complete:(void(^)(ErrorEntity *error))complete;
-
--(void)cancel;
 
 -(void)checkAndBeganTheDownloadTasks;
 

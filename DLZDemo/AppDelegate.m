@@ -67,7 +67,31 @@
     
     [AMapServices sharedServices].apiKey=@"26e92fbc21e3e87c36113e96cfc5b067";
     
+    [self downTest];
     
+    
+//    [[CalendarManager sharedCalendarManager] creatCalendarEventWithTitle:@"你好" content:@"日历功能测试" startTime:@"20180223160000" endTime:@"20180223163000" alertTimes:@[@"-3000",@"-60",@"-234"] complete:^(NSString *errorMessage) {
+//        if (errorMessage.length) {
+//            NSLog(@"添加失败%@",errorMessage);
+//        }else{
+//            NSLog(@"添加成功");
+//        }
+//    }];
+    
+    return YES;
+}
+-(void)downTest{
+    
+    //    NSString *test=@"➑hg🐰哈哈";
+    //    BOOL hasemoj=[ApplicationUtils hasEmoji:test];
+    //    test=[ApplicationUtils disable_emoji:test];
+    //    DLog("length=%lu",(unsigned long)test.length);
+    //
+    //    NSRange range;
+    //    for (NSInteger i=0; i<test.length; i+=range.length) {
+    //        range=[test rangeOfComposedCharacterSequenceAtIndex:i];
+    //        DLog("test=%@",[test substringWithRange:range]);
+    //    }
     [[DownloadManager sharedManager] checkAndBeganTheDownloadTasks];
     VideoEntity *info=[[VideoEntity alloc]init];
     info.identifyid=@"78789";
@@ -108,7 +132,12 @@
                 }
                     break;
                 case 2:{
-                    [array addObject:[NSString stringWithFormat:@"视频id：%@ 进度：已完成",video.identifyid]];
+                    BOOL hasfile=[[NSFileManager defaultManager] fileExistsAtPath:video.filePath];
+                    if (hasfile) {
+                        [array addObject:[NSString stringWithFormat:@"视频id：%@ 进度：已完成",video.identifyid]];
+                    }else{
+                        [array addObject:[NSString stringWithFormat:@"视频id：%@ 进度：下载出错",video.identifyid]];
+                    }
                 }
                     break;
                 default:
@@ -117,32 +146,10 @@
         }
         testView.text=[array componentsJoinedByString:@"\n"];
     }];
-
-//    [[HttpManager sharedHttpManager] getNetSpeedComplete:^(CGFloat speedin, CGFloat speedout) {
-//        NSLog(@"下载：%f  上传 :%f",speedin,speedout);
-//    }];
-    [[CalendarManager sharedCalendarManager] creatCalendarEventWithTitle:@"你好" content:@"日历功能测试" startTime:@"20180223160000" endTime:@"20180223163000" alertTimes:@[@"-3000",@"-60",@"-234"] complete:^(NSString *errorMessage) {
-        if (errorMessage.length) {
-            NSLog(@"添加失败%@",errorMessage);
-        }else{
-            NSLog(@"添加成功");
-        }
-    }];
     
-    return YES;
-}
--(void)test{
-    
-    //    NSString *test=@"➑hg🐰哈哈";
-    //    BOOL hasemoj=[ApplicationUtils hasEmoji:test];
-    //    test=[ApplicationUtils disable_emoji:test];
-    //    DLog("length=%lu",(unsigned long)test.length);
-    //
-    //    NSRange range;
-    //    for (NSInteger i=0; i<test.length; i+=range.length) {
-    //        range=[test rangeOfComposedCharacterSequenceAtIndex:i];
-    //        DLog("test=%@",[test substringWithRange:range]);
-    //    }
+    //    [[HttpManager sharedHttpManager] getNetSpeedComplete:^(CGFloat speedin, CGFloat speedout) {
+    //        NSLog(@"下载：%f  上传 :%f",speedin,speedout);
+    //    }];
 }
 
 
@@ -180,7 +187,6 @@
     [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^(){
         //程序在10分钟内未被系统关闭或者强制关闭，则程序会调用此代码块，可以在这里做一些保存或者清理工作
         NSLog(@"程序关闭1");
-        [[DownloadManager sharedManager] cancel];
     }];
 }
 
@@ -199,7 +205,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     NSLog(@"程序关闭2");
-    [[DownloadManager sharedManager] cancel];
 }
 //-(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
 //
