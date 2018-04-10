@@ -54,10 +54,18 @@
 		8E5E5AE0201F0DC600535CA9 /* DataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5E5ADF201F0DC600535CA9 /* DataVC.m */; };
 		8E61BB971DBA0273003D0BE2 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E61BB961DBA0273003D0BE2 /* UserNotifications.framework */; };
 		8E72E7D72071F79200CF8F8B /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8E72E7D62071F79100CF8F8B /* ding.wav */; };
+		8E7428232079AE3F00C7A256 /* RotateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7428222079AE3F00C7A256 /* RotateVC.m */; };
+		8E7428282079AF4D00C7A256 /* DownloadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7428272079AF4D00C7A256 /* DownloadVC.m */; };
+		8E74282A2079B6B400C7A256 /* RotateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7428292079B6B400C7A256 /* RotateVC.xib */; };
+		8E74282C2079B90100C7A256 /* timg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8E74282B2079B90000C7A256 /* timg.jpeg */; };
+		8E74282E2079E81A00C7A256 /* hahah.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 8E74282D2079E81900C7A256 /* hahah.JPG */; };
 		8E8239BD1EF229D600E538FE /* ApplicationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8239B71EF229D600E538FE /* ApplicationUtils.m */; };
 		8E8239BE1EF229D600E538FE /* DataUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8239B91EF229D600E538FE /* DataUtils.m */; };
 		8E8239CE1EF230A800E538FE /* ErrorEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8239CB1EF230A800E538FE /* ErrorEntity.m */; };
 		8E8239CF1EF230A800E538FE /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8239CD1EF230A800E538FE /* HttpManager.m */; };
+		8E835942207AFFC000091FCF /* VoiceRecogiNewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E835941207AFFC000091FCF /* VoiceRecogiNewVC.m */; };
+		8E835944207AFFD500091FCF /* VoiceRecogiNewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E835943207AFFD500091FCF /* VoiceRecogiNewVC.xib */; };
+		8E835947207B31AE00091FCF /* voicetest.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 8E835946207B317C00091FCF /* voicetest.m4a */; };
 		8E91C1AA2060E06F0048C601 /* SqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E91C1A92060E06F0048C601 /* SqliteManager.m */; };
 		8E985F59205BB0DC00DE0CBC /* BaseNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E985F58205BB0DC00DE0CBC /* BaseNavVC.m */; };
 		8E9EEBE51EB9B5A900ED8995 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EEBE41EB9B5A900ED8995 /* UINavigationController+FDFullscreenPopGesture.m */; };
@@ -351,6 +359,13 @@
 		8E61BB951DB9F911003D0BE2 /* DLZDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DLZDemo.entitlements; sourceTree = "<group>"; };
 		8E61BB961DBA0273003D0BE2 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		8E72E7D62071F79100CF8F8B /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
+		8E7428212079AE3F00C7A256 /* RotateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RotateVC.h; sourceTree = "<group>"; };
+		8E7428222079AE3F00C7A256 /* RotateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RotateVC.m; sourceTree = "<group>"; };
+		8E7428262079AF4D00C7A256 /* DownloadVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadVC.h; sourceTree = "<group>"; };
+		8E7428272079AF4D00C7A256 /* DownloadVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadVC.m; sourceTree = "<group>"; };
+		8E7428292079B6B400C7A256 /* RotateVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RotateVC.xib; sourceTree = "<group>"; };
+		8E74282B2079B90000C7A256 /* timg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg.jpeg; sourceTree = "<group>"; };
+		8E74282D2079E81900C7A256 /* hahah.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hahah.JPG; sourceTree = "<group>"; };
 		8E8239B61EF229D600E538FE /* ApplicationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationUtils.h; sourceTree = "<group>"; };
 		8E8239B71EF229D600E538FE /* ApplicationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationUtils.m; sourceTree = "<group>"; };
 		8E8239B81EF229D600E538FE /* DataUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUtils.h; sourceTree = "<group>"; };
@@ -360,6 +375,10 @@
 		8E8239CB1EF230A800E538FE /* ErrorEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorEntity.m; sourceTree = "<group>"; };
 		8E8239CC1EF230A800E538FE /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpManager.h; sourceTree = "<group>"; };
 		8E8239CD1EF230A800E538FE /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpManager.m; sourceTree = "<group>"; };
+		8E835940207AFFC000091FCF /* VoiceRecogiNewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoiceRecogiNewVC.h; sourceTree = "<group>"; };
+		8E835941207AFFC000091FCF /* VoiceRecogiNewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoiceRecogiNewVC.m; sourceTree = "<group>"; };
+		8E835943207AFFD500091FCF /* VoiceRecogiNewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoiceRecogiNewVC.xib; sourceTree = "<group>"; };
+		8E835946207B317C00091FCF /* voicetest.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = voicetest.m4a; sourceTree = "<group>"; };
 		8E91C1A82060E06F0048C601 /* SqliteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqliteManager.h; sourceTree = "<group>"; };
 		8E91C1A92060E06F0048C601 /* SqliteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqliteManager.m; sourceTree = "<group>"; };
 		8E985F57205BB0DC00DE0CBC /* BaseNavVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavVC.h; sourceTree = "<group>"; };
@@ -500,16 +519,6 @@
 			name = camera;
 			sourceTree = "<group>";
 		};
-		8E21C0EE2074CF99009C9D0D /* download */ = {
-			isa = PBXGroup;
-			children = (
-				8EDD5A4D1DC2E648004B7C25 /* DownloadManager.h */,
-				8EDD5A4E1DC2E648004B7C25 /* DownloadManager.m */,
-				8E72E7D62071F79100CF8F8B /* ding.wav */,
-			);
-			name = download;
-			sourceTree = "<group>";
-		};
 		8E3958FE1DB8B63300BA180A = {
 			isa = PBXGroup;
 			children = (
@@ -535,13 +544,9 @@
 				8E61BB951DB9F911003D0BE2 /* DLZDemo.entitlements */,
 				8E39590D1DB8B63300BA180A /* AppDelegate.h */,
 				8E39590E1DB8B63300BA180A /* AppDelegate.m */,
-				8E985F57205BB0DC00DE0CBC /* BaseNavVC.h */,
-				8E985F58205BB0DC00DE0CBC /* BaseNavVC.m */,
 				8E3959271DB8B70200BA180A /* ViewController.h */,
 				8E3959281DB8B70200BA180A /* ViewController.m */,
-				8E53517B1EE155BE003DC4EB /* BaseVC.h */,
-				8E53517C1EE155BE003DC4EB /* BaseVC.m */,
-				8E21C0EE2074CF99009C9D0D /* download */,
+				8E7428352079F1F000C7A256 /* base */,
 				8EB4D6822069F6D2003A180E /* calendar */,
 				8E53513F1EE002D5003DC4EB /* call */,
 				8E5351401EE002E5003DC4EB /* map */,
@@ -553,6 +558,9 @@
 				8E5E5AD6201EC51F00535CA9 /* moves */,
 				8E4414E7202011200055ADDB /* 二维码 */,
 				8E5E5ADD201F0DA900535CA9 /* data */,
+				8E7428252079AF2E00C7A256 /* download */,
+				8E7428242079AE5500C7A256 /* rotate */,
+				8E74282F2079F0EC00C7A256 /* voice */,
 				8E3959131DB8B63300BA180A /* Main.storyboard */,
 				8E8239B51EF229D600E538FE /* Utils */,
 				8E3959161DB8B63300BA180A /* Assets.xcassets */,
@@ -891,6 +899,52 @@
 			name = data;
 			sourceTree = "<group>";
 		};
+		8E7428242079AE5500C7A256 /* rotate */ = {
+			isa = PBXGroup;
+			children = (
+				8E74282D2079E81900C7A256 /* hahah.JPG */,
+				8E74282B2079B90000C7A256 /* timg.jpeg */,
+				8E7428212079AE3F00C7A256 /* RotateVC.h */,
+				8E7428222079AE3F00C7A256 /* RotateVC.m */,
+				8E7428292079B6B400C7A256 /* RotateVC.xib */,
+			);
+			name = rotate;
+			sourceTree = "<group>";
+		};
+		8E7428252079AF2E00C7A256 /* download */ = {
+			isa = PBXGroup;
+			children = (
+				8E7428262079AF4D00C7A256 /* DownloadVC.h */,
+				8E7428272079AF4D00C7A256 /* DownloadVC.m */,
+				8EDD5A4D1DC2E648004B7C25 /* DownloadManager.h */,
+				8EDD5A4E1DC2E648004B7C25 /* DownloadManager.m */,
+				8E72E7D62071F79100CF8F8B /* ding.wav */,
+			);
+			name = download;
+			sourceTree = "<group>";
+		};
+		8E74282F2079F0EC00C7A256 /* voice */ = {
+			isa = PBXGroup;
+			children = (
+				8E835946207B317C00091FCF /* voicetest.m4a */,
+				8E835940207AFFC000091FCF /* VoiceRecogiNewVC.h */,
+				8E835941207AFFC000091FCF /* VoiceRecogiNewVC.m */,
+				8E835943207AFFD500091FCF /* VoiceRecogiNewVC.xib */,
+			);
+			name = voice;
+			sourceTree = "<group>";
+		};
+		8E7428352079F1F000C7A256 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				8E985F57205BB0DC00DE0CBC /* BaseNavVC.h */,
+				8E985F58205BB0DC00DE0CBC /* BaseNavVC.m */,
+				8E53517B1EE155BE003DC4EB /* BaseVC.h */,
+				8E53517C1EE155BE003DC4EB /* BaseVC.m */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
 		8E8239B51EF229D600E538FE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1076,6 +1130,7 @@
 				8E5609671EC042B1008B935E /* XuanranViewController.xib in Resources */,
 				8E266F9E1EC303D000011BAF /* test.m4v in Resources */,
 				8E53514A1EE00476003DC4EB /* LiveVC.xib in Resources */,
+				8E74282A2079B6B400C7A256 /* RotateVC.xib in Resources */,
 				8ED71F9D1ED97C15003CFCA3 /* BlueVC.xib in Resources */,
 				8EF546B9205F95FE00E8A223 /* DataVC.xib in Resources */,
 				8E39591A1DB8B63300BA180A /* LaunchScreen.storyboard in Resources */,
@@ -1089,10 +1144,14 @@
 				8EE708191FF0CB3600B89457 /* ImageCheckItem.xib in Resources */,
 				8E3959171DB8B63300BA180A /* Assets.xcassets in Resources */,
 				8EB000FF1DD06CA400921A25 /* ring.wav in Resources */,
+				8E74282E2079E81A00C7A256 /* hahah.JPG in Resources */,
 				8EB001001DD06CA400921A25 /* ringback.wav in Resources */,
+				8E835944207AFFD500091FCF /* VoiceRecogiNewVC.xib in Resources */,
+				8E74282C2079B90100C7A256 /* timg.jpeg in Resources */,
 				8E39592A1DB8B70200BA180A /* LoginVC.xib in Resources */,
 				8E3959151DB8B63300BA180A /* Main.storyboard in Resources */,
 				8E22F36C1FD8E4560032DF32 /* AlbumCell.xib in Resources */,
+				8E835947207B31AE00091FCF /* voicetest.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1178,6 +1237,7 @@
 				8EB000FE1DD06CA400921A25 /* CallManager.m in Sources */,
 				8E1527681F0DEA2E009011FE /* UIImageView+DlzImage.m in Sources */,
 				8EF28F5D1EC5C798008CD891 /* FWToasterFilter.m in Sources */,
+				8E835942207AFFC000091FCF /* VoiceRecogiNewVC.m in Sources */,
 				8EF28F531EC5C798008CD891 /* FWHudsonFilter.m in Sources */,
 				8E4414EA2020115F0055ADDB /* QRVC.m in Sources */,
 				8EF28F511EC5C798008CD891 /* FWFiveInputFilter.m in Sources */,
@@ -1193,6 +1253,7 @@
 				8EF28F571EC5C798008CD891 /* FWLordKelvinFilter.m in Sources */,
 				8EE708111FF0CAD300B89457 /* AlbumCheckView.m in Sources */,
 				8EF28F521EC5C798008CD891 /* FWHefeFilter.m in Sources */,
+				8E7428282079AF4D00C7A256 /* DownloadVC.m in Sources */,
 				8EF28F551EC5C798008CD891 /* FWLomofiFilter.m in Sources */,
 				8EF28F5C1EC5C798008CD891 /* FWSutroFilter.m in Sources */,
 				8EC4C825203F9AEF009B1D7D /* CalendarManager.m in Sources */,
@@ -1202,6 +1263,7 @@
 				8E032B8F1FBD63180057F9A2 /* AlbumUtils.m in Sources */,
 				8EE708121FF0CAD300B89457 /* AlbumVC.m in Sources */,
 				8EF28F5E1EC5C798008CD891 /* FWValenciaFilter.m in Sources */,
+				8E7428232079AE3F00C7A256 /* RotateVC.m in Sources */,
 				8E5037DF20219913006AEB59 /* QRGetVC.m in Sources */,
 				8E8239BE1EF229D600E538FE /* DataUtils.m in Sources */,
 				8E3959291DB8B70200BA180A /* LoginVC.m in Sources */,
@@ -1368,6 +1430,7 @@
 					"$(PROJECT_DIR)/DLZDemo",
 					"$(PROJECT_DIR)/DLZDemo/libs/ZegoLiveRoom-all/iphoneos",
 					"$(PROJECT_DIR)/DLZDemo/libs/ZegoLiveRoom-all/iphoneos_simulator",
+					"$(PROJECT_DIR)/DLZDemo/Framework",
 				);
 				GCC_PREFIX_HEADER = "$(ROOT)DLZDemo/Demo_Header.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1421,6 +1484,7 @@
 					"$(PROJECT_DIR)/DLZDemo",
 					"$(PROJECT_DIR)/DLZDemo/libs/ZegoLiveRoom-all/iphoneos",
 					"$(PROJECT_DIR)/DLZDemo/libs/ZegoLiveRoom-all/iphoneos_simulator",
+					"$(PROJECT_DIR)/DLZDemo/Framework",
 				);
 				GCC_PREFIX_HEADER = "$(ROOT)DLZDemo/Demo_Header.pch";
 				HEADER_SEARCH_PATHS = (

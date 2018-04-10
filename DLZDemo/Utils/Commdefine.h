@@ -30,6 +30,8 @@
 
 #define IOS10    [[[UIDevice currentDevice] systemVersion] floatValue]>=10&&[[[UIDevice currentDevice] systemVersion] floatValue]<11
 
+#define IOS11    [[[UIDevice currentDevice] systemVersion] floatValue]>=11&&[[[UIDevice currentDevice] systemVersion] floatValue]<12
+
 /**应用版本号*/
 #define APPLICATION_VERSON  [[[NSBundle mainBundle]infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="5sM-OP-WjS" customClass="VoiceRecogiNewVC">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="hHg-vh-KnS"/>
+                <viewControllerLayoutGuide type="bottom" id="Bdv-HZ-f6O"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="QML-1b-P9B">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="result:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="co6-h1-0JT">
+                        <rect key="frame" x="20" y="323" width="335" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="co6-h1-0JT" secondAttribute="trailing" constant="20" id="1eD-bj-elY"/>
+                    <constraint firstItem="co6-h1-0JT" firstAttribute="centerY" secondItem="QML-1b-P9B" secondAttribute="centerY" id="dwJ-IG-4UU"/>
+                    <constraint firstItem="co6-h1-0JT" firstAttribute="leading" secondItem="QML-1b-P9B" secondAttribute="leading" constant="20" id="kOA-64-EFT"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="result" destination="co6-h1-0JT" id="a2K-4M-uDJ"/>
+            </connections>
+            <point key="canvasLocation" x="40" y="54"/>
+        </viewController>
+    </objects>
+</document>

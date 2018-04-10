@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 
 #import "CallManager.h"
-#import "DownloadManager.h"
 
 #import <UserNotifications/UserNotifications.h>
 
@@ -67,8 +66,6 @@
     
     [AMapServices sharedServices].apiKey=@"26e92fbc21e3e87c36113e96cfc5b067";
     
-    [self downTest];
-    
     
 //    [[CalendarManager sharedCalendarManager] creatCalendarEventWithTitle:@"你好" content:@"日历功能测试" startTime:@"20180223160000" endTime:@"20180223163000" alertTimes:@[@"-3000",@"-60",@"-234"] complete:^(NSString *errorMessage) {
 //        if (errorMessage.length) {
@@ -77,11 +74,10 @@
 //            NSLog(@"添加成功");
 //        }
 //    }];
-    
+    NSString *test=[self test];
     return YES;
 }
--(void)downTest{
-    
+-(NSString*)test{
     //    NSString *test=@"➑hg🐰哈哈";
     //    BOOL hasemoj=[ApplicationUtils hasEmoji:test];
     //    test=[ApplicationUtils disable_emoji:test];
@@ -92,66 +88,13 @@
     //        range=[test rangeOfComposedCharacterSequenceAtIndex:i];
     //        DLog("test=%@",[test substringWithRange:range]);
     //    }
-    [[DownloadManager sharedManager] checkAndBeganTheDownloadTasks];
-    VideoEntity *info=[[VideoEntity alloc]init];
-    info.identifyid=@"78789";
-    info.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
-    info.name=@"test";
-    VideoEntity *info2=[[VideoEntity alloc]init];
-    info2.identifyid=@"78745";
-    info2.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
-    info2.name=@"test2";
-    VideoEntity *info3=[[VideoEntity alloc]init];
-    info3.identifyid=@"78676";
-    info3.orginUrl=@"http://123.56.76.242:8090/data/img/yzx/tmp/video/2016/05/23/2756.mp4";
-    info3.name=@"test3";
-    
-    [[DownloadManager   sharedManager] addTaskWithInfo:info complete:^(ErrorEntity *error) {
-    }];
-    [[DownloadManager   sharedManager] addTaskWithInfo:info2 complete:^(ErrorEntity *error) {
-    }];
-    [[DownloadManager   sharedManager] addTaskWithInfo:info3 complete:^(ErrorEntity *error) {
-    }];
-    
-    UILabel *testView=[[UILabel alloc]initWithFrame:CGRectMake(10, 200, MAIN_SCREAM_WIDTH-20, 100)];
-    testView.backgroundColor=[UIColor whiteColor];
-    testView.numberOfLines=0;
-    [self.window.rootViewController.view addSubview:testView];
-    
-    [[DownloadManager sharedManager] addDownloadStatusChange:^(NSArray<VideoEntity *> *tasks) {
-        NSMutableArray  *array=[[NSMutableArray alloc]init];
-        
-        for (VideoEntity *video in tasks) {
-            switch (video.status) {
-                case 0:{
-                    [array addObject:[NSString stringWithFormat:@"视频id：%@ 进度：等待下载",video.identifyid]];
-                }
-                    break;
-                case 1:{
-                    [array addObject:[NSString stringWithFormat:@"视频id：%@ 进度：%f",video.identifyid,video.progress]];
-                }
-                    break;
-                case 2:{
-                    BOOL hasfile=[[NSFileManager defaultManager] fileExistsAtPath:video.filePath];
-                    if (hasfile) {
-                        [array addObject:[NSString stringWithFormat:@"视频id：%@ 进度：已完成",video.identifyid]];
-                    }else{
-                        [array addObject:[NSString stringWithFormat:@"视频id：%@ 进度：下载出错",video.identifyid]];
-                    }
-                }
-                    break;
-                default:
-                    break;
-            }
-        }
-        testView.text=[array componentsJoinedByString:@"\n"];
-    }];
-    
-    //    [[HttpManager sharedHttpManager] getNetSpeedComplete:^(CGFloat speedin, CGFloat speedout) {
-    //        NSLog(@"下载：%f  上传 :%f",speedin,speedout);
-    //    }];
+    NSAssert(YES, @"测试");
+//    NSParameterAssert(NO);
+    return @"haha";
 }
 
+
+    
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
 

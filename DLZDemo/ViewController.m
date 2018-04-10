@@ -20,6 +20,9 @@
 #import "MyMoveVC.h"
 #import "QRVC.h"
 #import "DataVC.h"
+#import "DownloadVC.h"
+#import "RotateVC.h"
+#import "VoiceRecogiNewVC.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,EMCallManagerDelegate>{
 
@@ -34,9 +37,9 @@
     [super viewDidLoad];
     
     self.title=@"首页";
-    _source=@[@"通话",@"切换账号",@"地图",@"聊天",@"渲染",@"蓝牙",@"直播",@"相册",@"我的电影",@"二维码",@"数据库"];
+    _source=@[@"通话",@"切换账号",@"地图",@"聊天",@"渲染",@"蓝牙",@"直播",@"相册",@"我的电影",@"二维码",@"数据库",@"下载",@"旋转",@"语音识别"];
     
-    _listTable=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    _listTable=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStylePlain];
     _listTable.delegate=self;
     _listTable.dataSource=self;
     _listTable.separatorStyle=UITableViewCellSeparatorStyleNone;
@@ -120,6 +123,20 @@
     }else if ([test isEqualToString:@"数据库"]){
         
         DataVC *cvc=[[DataVC alloc]initWithNib];
+        [self.navigationController pushViewController:cvc animated:YES];
+    }else if ([test isEqualToString:@"下载"]){
+        
+        DownloadVC *cvc=[[DownloadVC alloc]init];
+        [self.navigationController pushViewController:cvc animated:YES];
+    }else if ([test isEqualToString:@"旋转"]){
+        
+        RotateVC *cvc=[[RotateVC alloc]initWithNib];
+        [self.navigationController pushViewController:cvc animated:YES];
+    }else if ([test isEqualToString:@"语音识别"]){
+        
+//        VoiceRecogiVC *cvc=[[VoiceRecogiVC alloc]initWithNib];
+        VoiceRecogiNewVC *cvc=[[VoiceRecogiNewVC alloc]initWithNib];
+
         [self.navigationController pushViewController:cvc animated:YES];
     }
 }
