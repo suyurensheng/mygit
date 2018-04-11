@@ -66,6 +66,7 @@
 		8E835942207AFFC000091FCF /* VoiceRecogiNewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E835941207AFFC000091FCF /* VoiceRecogiNewVC.m */; };
 		8E835944207AFFD500091FCF /* VoiceRecogiNewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E835943207AFFD500091FCF /* VoiceRecogiNewVC.xib */; };
 		8E835947207B31AE00091FCF /* voicetest.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 8E835946207B317C00091FCF /* voicetest.m4a */; };
+		8E83594A207CA61600091FCF /* VoiceRecogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E835949207CA61600091FCF /* VoiceRecogManager.m */; };
 		8E91C1AA2060E06F0048C601 /* SqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E91C1A92060E06F0048C601 /* SqliteManager.m */; };
 		8E985F59205BB0DC00DE0CBC /* BaseNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E985F58205BB0DC00DE0CBC /* BaseNavVC.m */; };
 		8E9EEBE51EB9B5A900ED8995 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EEBE41EB9B5A900ED8995 /* UINavigationController+FDFullscreenPopGesture.m */; };
@@ -379,6 +380,8 @@
 		8E835941207AFFC000091FCF /* VoiceRecogiNewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoiceRecogiNewVC.m; sourceTree = "<group>"; };
 		8E835943207AFFD500091FCF /* VoiceRecogiNewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoiceRecogiNewVC.xib; sourceTree = "<group>"; };
 		8E835946207B317C00091FCF /* voicetest.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = voicetest.m4a; sourceTree = "<group>"; };
+		8E835948207CA61600091FCF /* VoiceRecogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoiceRecogManager.h; sourceTree = "<group>"; };
+		8E835949207CA61600091FCF /* VoiceRecogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoiceRecogManager.m; sourceTree = "<group>"; };
 		8E91C1A82060E06F0048C601 /* SqliteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SqliteManager.h; sourceTree = "<group>"; };
 		8E91C1A92060E06F0048C601 /* SqliteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqliteManager.m; sourceTree = "<group>"; };
 		8E985F57205BB0DC00DE0CBC /* BaseNavVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavVC.h; sourceTree = "<group>"; };
@@ -930,6 +933,8 @@
 				8E835940207AFFC000091FCF /* VoiceRecogiNewVC.h */,
 				8E835941207AFFC000091FCF /* VoiceRecogiNewVC.m */,
 				8E835943207AFFD500091FCF /* VoiceRecogiNewVC.xib */,
+				8E835948207CA61600091FCF /* VoiceRecogManager.h */,
+				8E835949207CA61600091FCF /* VoiceRecogManager.m */,
 			);
 			name = voice;
 			sourceTree = "<group>";
@@ -1234,6 +1239,7 @@
 				8EF28F4E1EC5C798008CD891 /* FWBackgroundFilter.m in Sources */,
 				8EF28F501EC5C798008CD891 /* FWEarlybirdFilter.m in Sources */,
 				8EB001031DD06CA400921A25 /* VoiceView.m in Sources */,
+				8E83594A207CA61600091FCF /* VoiceRecogManager.m in Sources */,
 				8EB000FE1DD06CA400921A25 /* CallManager.m in Sources */,
 				8E1527681F0DEA2E009011FE /* UIImageView+DlzImage.m in Sources */,
 				8EF28F5D1EC5C798008CD891 /* FWToasterFilter.m in Sources */,

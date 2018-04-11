@@ -9,7 +9,10 @@
 #import "VoiceRecogiNewVC.h"
 #import <Speech/Speech.h>
 
-@interface VoiceRecogiNewVC ()<SFSpeechRecognizerDelegate>
+@interface VoiceRecogiNewVC ()<SFSpeechRecognizerDelegate>{
+    
+    AVAudioInputNode *_node;
+}
 
 @property(nonatomic,strong)SFSpeechRecognitionTask *task;
 @property (nonatomic,strong) SFSpeechAudioBufferRecognitionRequest *recognitionRequest;
@@ -30,8 +33,11 @@
 - (SFSpeechRecognizer *)speechRecognizer{
     if (!_speechRecognizer) {
         //为语音识别对象设置语言，这里设置的是中文
-        NSLocale *local =[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
+        NSString *currentLanguage = [languages objectAtIndex:0];
         
+        NSLocale *local =[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
         _speechRecognizer =[[SFSpeechRecognizer alloc] initWithLocale:local];
         _speechRecognizer.delegate = self;
     }
@@ -92,8 +98,6 @@
     NSParameterAssert(!error);
     
     _recognitionRequest=[[SFSpeechAudioBufferRecognitionRequest alloc]init];
-    AVAudioInputNode *node=self.audioEngine.inputNode;
-    NSAssert(node, @"录入设备没有准备好");
     NSAssert(_recognitionRequest, @"请求初始化失败");
 
     _recognitionRequest.shouldReportPartialResults=YES;
@@ -110,17 +114,22 @@
             isFinal=result.isFinal;
         }
         if (error||isFinal) {
-            [strongSelf.audioEngine stop];
-            [node removeTapOnBus:0];
-            strongSelf.task=nil;
-            strongSelf.recognitionRequest=nil;
-            [strongSelf newWordGet:@"结束识别"];
+            
+            [strongSelf endRecognize];
+//            [strongSelf.audioEngine stop];
+//            [_node removeTapOnBus:0];
+//            strongSelf.task=nil;
+//            [_recognitionRequest endAudio];
+//            _recognitionRequest=nil;
+//            [strongSelf newWordGet:@"结束识别"];
         }
     }];
-    [node removeTapOnBus:0];
-
-    AVAudioFormat *format=[node outputFormatForBus:0];
-    [node installTapOnBus:0 bufferSize:1024 format:format block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
+    
+    _node=self.audioEngine.inputNode;
+    NSAssert(_node, @"录入设备没有准备好");
+    [_node removeTapOnBus:0];
+    AVAudioFormat *format=[_node outputFormatForBus:0];
+    [_node installTapOnBus:0 bufferSize:1024 format:format block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (strongSelf.recognitionRequest) {
             [strongSelf.recognitionRequest appendAudioPCMBuffer:buffer];
@@ -133,13 +142,16 @@
 }
 -(void)endRecognize{
     
-    [self.audioEngine stop];
-    if (_recognitionRequest) {
-        [_recognitionRequest endAudio];
-    }
     if (_task) {
+        [self.audioEngine stop];
+        [_node removeTapOnBus:0];
+        [_recognitionRequest endAudio];
+        _recognitionRequest=nil;
+        
         [_task cancel];
         _task = nil;
+        
+        [self newWordGet:@"结束识别"];
     }
 }
 
