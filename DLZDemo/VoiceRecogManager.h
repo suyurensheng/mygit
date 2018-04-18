@@ -13,4 +13,6 @@
 
 +(instancetype)sharedManager;
 
++(void)startRecogi;
+
 @end

@@ -23,6 +23,7 @@
 #import "DownloadVC.h"
 #import "RotateVC.h"
 #import "VoiceRecogiNewVC.h"
+#import "GrainVC.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,EMCallManagerDelegate>{
 
@@ -37,7 +38,7 @@
     [super viewDidLoad];
     
     self.title=@"首页";
-    _source=@[@"通话",@"切换账号",@"地图",@"聊天",@"渲染",@"蓝牙",@"直播",@"相册",@"我的电影",@"二维码",@"数据库",@"下载",@"旋转",@"语音识别"];
+    _source=@[@"通话",@"切换账号",@"地图",@"聊天",@"渲染",@"蓝牙",@"直播",@"相册",@"我的电影",@"二维码",@"数据库",@"下载",@"旋转",@"语音识别",@"粒子效果"];
     
     _listTable=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStylePlain];
     _listTable.delegate=self;
@@ -134,9 +135,11 @@
         [self.navigationController pushViewController:cvc animated:YES];
     }else if ([test isEqualToString:@"语音识别"]){
         
-//        VoiceRecogiVC *cvc=[[VoiceRecogiVC alloc]initWithNib];
         VoiceRecogiNewVC *cvc=[[VoiceRecogiNewVC alloc]initWithNib];
-
+        [self.navigationController pushViewController:cvc animated:YES];
+    }else if ([test isEqualToString:@"粒子效果"]){
+        
+        GrainVC *cvc=[[GrainVC alloc]init];
         [self.navigationController pushViewController:cvc animated:YES];
     }
 }
