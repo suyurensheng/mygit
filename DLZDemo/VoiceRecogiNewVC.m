@@ -33,9 +33,9 @@
 - (SFSpeechRecognizer *)speechRecognizer{
     if (!_speechRecognizer) {
         //为语音识别对象设置语言，这里设置的是中文
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
-        NSString *currentLanguage = [languages objectAtIndex:0];
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
+//        NSString *currentLanguage = [languages objectAtIndex:0];
         
         NSLocale *local =[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
         _speechRecognizer =[[SFSpeechRecognizer alloc] initWithLocale:local];

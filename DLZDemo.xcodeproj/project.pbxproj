@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8E032B8F1FBD63180057F9A2 /* AlbumUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E032B8E1FBD63180057F9A2 /* AlbumUtils.m */; };
 		8E1527681F0DEA2E009011FE /* UIImageView+DlzImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1527671F0DEA2E009011FE /* UIImageView+DlzImage.m */; };
+		8E175CC7208736ED00FA7B92 /* GrainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E175CC6208736ED00FA7B92 /* GrainVC.m */; };
 		8E22F36A1FD8E4350032DF32 /* AlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E22F3691FD8E4350032DF32 /* AlbumCell.m */; };
 		8E22F36C1FD8E4560032DF32 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E22F36B1FD8E4560032DF32 /* AlbumCell.xib */; };
 		8E22F36F1FD8EF9F0032DF32 /* UIImageView+DLZPlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E22F36D1FD8EF9E0032DF32 /* UIImageView+DLZPlus.m */; };
@@ -124,6 +125,9 @@
 		8E1527641F0DC845009011FE /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		8E1527661F0DEA2E009011FE /* UIImageView+DlzImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DlzImage.h"; sourceTree = "<group>"; };
 		8E1527671F0DEA2E009011FE /* UIImageView+DlzImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DlzImage.m"; sourceTree = "<group>"; };
+		8E175CC5208736ED00FA7B92 /* GrainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrainVC.h; sourceTree = "<group>"; };
+		8E175CC6208736ED00FA7B92 /* GrainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrainVC.m; sourceTree = "<group>"; };
+		8E175CC820873B0900FA7B92 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
 		8E22F3681FD8E4350032DF32 /* AlbumCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlbumCell.h; sourceTree = "<group>"; };
 		8E22F3691FD8E4350032DF32 /* AlbumCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlbumCell.m; sourceTree = "<group>"; };
 		8E22F36B1FD8E4560032DF32 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
@@ -499,7 +503,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E032B891FBC04D30057F9A2 /* camera */ = {
+		8E032B891FBC04D30057F9A2 /* 相册 */ = {
 			isa = PBXGroup;
 			children = (
 				8EE7080F1FF0CAD200B89457 /* AlbumCheckView.h */,
@@ -519,7 +523,38 @@
 				8E22F36E1FD8EF9F0032DF32 /* UIImageView+DLZPlus.h */,
 				8E22F36D1FD8EF9E0032DF32 /* UIImageView+DLZPlus.m */,
 			);
-			name = camera;
+			name = "相册";
+			sourceTree = "<group>";
+		};
+		8E175CC320872B1500FA7B92 /* 粒子效果 */ = {
+			isa = PBXGroup;
+			children = (
+				8E175CC5208736ED00FA7B92 /* GrainVC.h */,
+				8E175CC6208736ED00FA7B92 /* GrainVC.m */,
+			);
+			name = "粒子效果";
+			sourceTree = "<group>";
+		};
+		8E175CC420872B8F00FA7B92 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				8EB4D6822069F6D2003A180E /* 日历 */,
+				8E53513F1EE002D5003DC4EB /* 呼叫 */,
+				8E5351401EE002E5003DC4EB /* 地图 */,
+				8E5351411EE003CD003DC4EB /* 聊天 */,
+				8E5351421EE003D6003DC4EB /* 滤镜 */,
+				8E5351431EE003F0003DC4EB /* 蓝牙 */,
+				8E5351451EE0042B003DC4EB /* 直播 */,
+				8E032B891FBC04D30057F9A2 /* 相册 */,
+				8E5E5AD6201EC51F00535CA9 /* 视频 */,
+				8E4414E7202011200055ADDB /* 二维码 */,
+				8E5E5ADD201F0DA900535CA9 /* 数据库 */,
+				8E7428252079AF2E00C7A256 /* 视频下载 */,
+				8E7428242079AE5500C7A256 /* 翻转 */,
+				8E74282F2079F0EC00C7A256 /* 语音识别 */,
+				8E175CC320872B1500FA7B92 /* 粒子效果 */,
+			);
+			name = classes;
 			sourceTree = "<group>";
 		};
 		8E3958FE1DB8B63300BA180A = {
@@ -550,23 +585,11 @@
 				8E3959271DB8B70200BA180A /* ViewController.h */,
 				8E3959281DB8B70200BA180A /* ViewController.m */,
 				8E7428352079F1F000C7A256 /* base */,
-				8EB4D6822069F6D2003A180E /* calendar */,
-				8E53513F1EE002D5003DC4EB /* call */,
-				8E5351401EE002E5003DC4EB /* map */,
-				8E5351411EE003CD003DC4EB /* chat */,
-				8E5351421EE003D6003DC4EB /* filter */,
-				8E5351431EE003F0003DC4EB /* bluetooth */,
-				8E5351451EE0042B003DC4EB /* live */,
-				8E032B891FBC04D30057F9A2 /* camera */,
-				8E5E5AD6201EC51F00535CA9 /* moves */,
-				8E4414E7202011200055ADDB /* 二维码 */,
-				8E5E5ADD201F0DA900535CA9 /* data */,
-				8E7428252079AF2E00C7A256 /* download */,
-				8E7428242079AE5500C7A256 /* rotate */,
-				8E74282F2079F0EC00C7A256 /* voice */,
+				8E175CC420872B8F00FA7B92 /* classes */,
 				8E3959131DB8B63300BA180A /* Main.storyboard */,
 				8E8239B51EF229D600E538FE /* Utils */,
 				8E3959161DB8B63300BA180A /* Assets.xcassets */,
+				8E175CC820873B0900FA7B92 /* snow.png */,
 				8E3959181DB8B63300BA180A /* LaunchScreen.storyboard */,
 				8E39591B1DB8B63300BA180A /* Info.plist */,
 				8E39590A1DB8B63300BA180A /* Supporting Files */,
@@ -622,7 +645,7 @@
 			name = "二维码";
 			sourceTree = "<group>";
 		};
-		8E53513F1EE002D5003DC4EB /* call */ = {
+		8E53513F1EE002D5003DC4EB /* 呼叫 */ = {
 			isa = PBXGroup;
 			children = (
 				8E3959211DB8B70200BA180A /* LoginVC.h */,
@@ -633,29 +656,29 @@
 				8E3959261DB8B70200BA180A /* ShowView.xib */,
 				8EB000F31DD06CA400921A25 /* CallManger */,
 			);
-			name = call;
+			name = "呼叫";
 			sourceTree = "<group>";
 		};
-		8E5351401EE002E5003DC4EB /* map */ = {
+		8E5351401EE002E5003DC4EB /* 地图 */ = {
 			isa = PBXGroup;
 			children = (
 				8EAD93391DE2F8550028ABFF /* MapVC.h */,
 				8EAD933A1DE2F8550028ABFF /* MapVC.m */,
 			);
-			name = map;
+			name = "地图";
 			sourceTree = "<group>";
 		};
-		8E5351411EE003CD003DC4EB /* chat */ = {
+		8E5351411EE003CD003DC4EB /* 聊天 */ = {
 			isa = PBXGroup;
 			children = (
 				8ED7DC331DE3D90000B28EC9 /* ChatVC.h */,
 				8ED7DC341DE3D90000B28EC9 /* ChatVC.m */,
 				8ED7DC411DE3F6F900B28EC9 /* ChatVC.xib */,
 			);
-			name = chat;
+			name = "聊天";
 			sourceTree = "<group>";
 		};
-		8E5351421EE003D6003DC4EB /* filter */ = {
+		8E5351421EE003D6003DC4EB /* 滤镜 */ = {
 			isa = PBXGroup;
 			children = (
 				8E266F9D1EC303D000011BAF /* test.m4v */,
@@ -664,10 +687,10 @@
 				8E5609641EC04292008B935E /* XuanranViewController.m */,
 				8E5609661EC042B1008B935E /* XuanranViewController.xib */,
 			);
-			name = filter;
+			name = "滤镜";
 			sourceTree = "<group>";
 		};
-		8E5351431EE003F0003DC4EB /* bluetooth */ = {
+		8E5351431EE003F0003DC4EB /* 蓝牙 */ = {
 			isa = PBXGroup;
 			children = (
 				8ED71F991ED97C0C003CFCA3 /* BlueVC.h */,
@@ -678,17 +701,17 @@
 				8EF61291205673BC00397A0B /* DeviceEntity.h */,
 				8EF61292205673BC00397A0B /* DeviceEntity.m */,
 			);
-			name = bluetooth;
+			name = "蓝牙";
 			sourceTree = "<group>";
 		};
-		8E5351451EE0042B003DC4EB /* live */ = {
+		8E5351451EE0042B003DC4EB /* 直播 */ = {
 			isa = PBXGroup;
 			children = (
 				8E5351461EE00469003DC4EB /* LiveVC.h */,
 				8E5351471EE00469003DC4EB /* LiveVC.m */,
 				8E5351491EE00476003DC4EB /* LiveVC.xib */,
 			);
-			name = live;
+			name = "直播";
 			sourceTree = "<group>";
 		};
 		8E56096A1EC043BF008B935E /* libGPUImage */ = {
@@ -881,16 +904,16 @@
 			path = headers;
 			sourceTree = "<group>";
 		};
-		8E5E5AD6201EC51F00535CA9 /* moves */ = {
+		8E5E5AD6201EC51F00535CA9 /* 视频 */ = {
 			isa = PBXGroup;
 			children = (
 				8E5E5AD7201EC62900535CA9 /* MyMoveVC.h */,
 				8E5E5AD8201EC62900535CA9 /* MyMoveVC.m */,
 			);
-			name = moves;
+			name = "视频";
 			sourceTree = "<group>";
 		};
-		8E5E5ADD201F0DA900535CA9 /* data */ = {
+		8E5E5ADD201F0DA900535CA9 /* 数据库 */ = {
 			isa = PBXGroup;
 			children = (
 				8E5E5ADE201F0DC600535CA9 /* DataVC.h */,
@@ -899,10 +922,10 @@
 				8E91C1A82060E06F0048C601 /* SqliteManager.h */,
 				8E91C1A92060E06F0048C601 /* SqliteManager.m */,
 			);
-			name = data;
+			name = "数据库";
 			sourceTree = "<group>";
 		};
-		8E7428242079AE5500C7A256 /* rotate */ = {
+		8E7428242079AE5500C7A256 /* 翻转 */ = {
 			isa = PBXGroup;
 			children = (
 				8E74282D2079E81900C7A256 /* hahah.JPG */,
@@ -911,10 +934,10 @@
 				8E7428222079AE3F00C7A256 /* RotateVC.m */,
 				8E7428292079B6B400C7A256 /* RotateVC.xib */,
 			);
-			name = rotate;
+			name = "翻转";
 			sourceTree = "<group>";
 		};
-		8E7428252079AF2E00C7A256 /* download */ = {
+		8E7428252079AF2E00C7A256 /* 视频下载 */ = {
 			isa = PBXGroup;
 			children = (
 				8E7428262079AF4D00C7A256 /* DownloadVC.h */,
@@ -923,10 +946,10 @@
 				8EDD5A4E1DC2E648004B7C25 /* DownloadManager.m */,
 				8E72E7D62071F79100CF8F8B /* ding.wav */,
 			);
-			name = download;
+			name = "视频下载";
 			sourceTree = "<group>";
 		};
-		8E74282F2079F0EC00C7A256 /* voice */ = {
+		8E74282F2079F0EC00C7A256 /* 语音识别 */ = {
 			isa = PBXGroup;
 			children = (
 				8E835946207B317C00091FCF /* voicetest.m4a */,
@@ -936,7 +959,7 @@
 				8E835948207CA61600091FCF /* VoiceRecogManager.h */,
 				8E835949207CA61600091FCF /* VoiceRecogManager.m */,
 			);
-			name = voice;
+			name = "语音识别";
 			sourceTree = "<group>";
 		};
 		8E7428352079F1F000C7A256 /* base */ = {
@@ -994,13 +1017,13 @@
 			path = CallManger;
 			sourceTree = "<group>";
 		};
-		8EB4D6822069F6D2003A180E /* calendar */ = {
+		8EB4D6822069F6D2003A180E /* 日历 */ = {
 			isa = PBXGroup;
 			children = (
 				8EC4C823203F9AEF009B1D7D /* CalendarManager.h */,
 				8EC4C824203F9AEF009B1D7D /* CalendarManager.m */,
 			);
-			name = calendar;
+			name = "日历";
 			sourceTree = "<group>";
 		};
 		8EF28F211EC5C798008CD891 /* Custom Filters */ = {
@@ -1072,7 +1095,6 @@
 				8E3959031DB8B63300BA180A /* Sources */,
 				8E3959041DB8B63300BA180A /* Frameworks */,
 				8E3959051DB8B63300BA180A /* Resources */,
-				28FCC968BEEB051166E3041C /* [CP] Embed Pods Frameworks */,
 				C24CB45BD5CF8F2022697552 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1163,21 +1185,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		28FCC968BEEB051166E3041C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DLZDemo/Pods-DLZDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9D052AB599DC82A3F71D112B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1231,6 +1238,7 @@
 			files = (
 				8E39590F1DB8B63300BA180A /* AppDelegate.m in Sources */,
 				8E22F36A1FD8E4350032DF32 /* AlbumCell.m in Sources */,
+				8E175CC7208736ED00FA7B92 /* GrainVC.m in Sources */,
 				8E53517D1EE155BE003DC4EB /* BaseVC.m in Sources */,
 				8E39592B1DB8B70200BA180A /* ShowView.m in Sources */,
 				8E8239CF1EF230A800E538FE /* HttpManager.m in Sources */,
