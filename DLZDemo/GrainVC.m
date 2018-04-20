@@ -32,10 +32,19 @@
     CAEmitterCell *cell=[[CAEmitterCell alloc]init];
     cell.birthRate=5;
     cell.lifetime=50;
+    
     cell.velocity=50;
     cell.velocityRange=3;
-    cell.yAcceleration=10;
-    cell.emissionRange=0.5 *M_PI*3;
+    
+    cell.spin=50;
+    cell.spinRange=5;
+    
+    cell.scale=2;
+    cell.scaleRange=3;
+    
+    cell.emissionLongitude=0;
+    cell.emissionRange=M_PI*2;
+    
     cell.contents=(__bridge id _Nullable)([UIImage imageNamed:@"snow_1.jpg"].CGImage);
     layer.emitterCells=@[cell];
 }
