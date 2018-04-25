@@ -51,6 +51,8 @@
 		8E560B781EC04A7A008B935E /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E560B771EC04A7A008B935E /* CoreVideo.framework */; };
 		8E560B7A1EC04A82008B935E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E560B791EC04A82008B935E /* OpenGLES.framework */; };
 		8E560B7C1EC04A92008B935E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E560B7B1EC04A92008B935E /* QuartzCore.framework */; };
+		8E5CB23E2089971100D2EAA4 /* ARVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5CB23D2089971100D2EAA4 /* ARVC.m */; };
+		8E5CB2642089CDB500D2EAA4 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5CB2632089CDB500D2EAA4 /* art.scnassets */; };
 		8E5E5AD9201EC62900535CA9 /* MyMoveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5E5AD8201EC62900535CA9 /* MyMoveVC.m */; };
 		8E5E5AE0201F0DC600535CA9 /* DataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5E5ADF201F0DC600535CA9 /* DataVC.m */; };
 		8E61BB971DBA0273003D0BE2 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E61BB961DBA0273003D0BE2 /* UserNotifications.framework */; };
@@ -356,6 +358,9 @@
 		8E560C281EC04E9B008B935E /* GPUImageXYDerivativeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageXYDerivativeFilter.h; sourceTree = "<group>"; };
 		8E560C291EC04E9B008B935E /* GPUImageZoomBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageZoomBlurFilter.h; sourceTree = "<group>"; };
 		8E560C2A1EC04F1C008B935E /* GPUImageHarrisCornerDetectionFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageHarrisCornerDetectionFilter.h; sourceTree = "<group>"; };
+		8E5CB23C2089971100D2EAA4 /* ARVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARVC.h; sourceTree = "<group>"; };
+		8E5CB23D2089971100D2EAA4 /* ARVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARVC.m; sourceTree = "<group>"; };
+		8E5CB2632089CDB500D2EAA4 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		8E5D67111DCC284000F6CAE8 /* Demo_Header.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo_Header.pch; sourceTree = "<group>"; };
 		8E5E5AD7201EC62900535CA9 /* MyMoveVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMoveVC.h; sourceTree = "<group>"; };
 		8E5E5AD8201EC62900535CA9 /* MyMoveVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMoveVC.m; sourceTree = "<group>"; };
@@ -553,6 +558,7 @@
 				8E7428242079AE5500C7A256 /* 翻转 */,
 				8E74282F2079F0EC00C7A256 /* 语音识别 */,
 				8E175CC320872B1500FA7B92 /* 粒子效果 */,
+				8E5CB23B208996EC00D2EAA4 /* AR */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -904,6 +910,16 @@
 			path = headers;
 			sourceTree = "<group>";
 		};
+		8E5CB23B208996EC00D2EAA4 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				8E5CB2632089CDB500D2EAA4 /* art.scnassets */,
+				8E5CB23C2089971100D2EAA4 /* ARVC.h */,
+				8E5CB23D2089971100D2EAA4 /* ARVC.m */,
+			);
+			name = AR;
+			sourceTree = "<group>";
+		};
 		8E5E5AD6201EC51F00535CA9 /* 视频 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1169,6 +1185,7 @@
 				8EB001021DD06CA400921A25 /* VideoView.xib in Resources */,
 				8ED7DC421DE3F6F900B28EC9 /* ChatVC.xib in Resources */,
 				8EE708191FF0CB3600B89457 /* ImageCheckItem.xib in Resources */,
+				8E5CB2642089CDB500D2EAA4 /* art.scnassets in Resources */,
 				8E3959171DB8B63300BA180A /* Assets.xcassets in Resources */,
 				8EB000FF1DD06CA400921A25 /* ring.wav in Resources */,
 				8E74282E2079E81A00C7A256 /* hahah.JPG in Resources */,
@@ -1283,6 +1300,7 @@
 				8E3959291DB8B70200BA180A /* LoginVC.m in Sources */,
 				8ED7DC351DE3D90000B28EC9 /* ChatVC.m in Sources */,
 				8E5E5AE0201F0DC600535CA9 /* DataVC.m in Sources */,
+				8E5CB23E2089971100D2EAA4 /* ARVC.m in Sources */,
 				8E39592D1DB8B70200BA180A /* ViewController.m in Sources */,
 				8EF28F5A1EC5C798008CD891 /* FWSierraFilter.m in Sources */,
 				8EF28F5B1EC5C798008CD891 /* FWSixInputFilter.m in Sources */,
@@ -1456,7 +1474,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Hyphenate_CN\"",
 				);
 				INFOPLIST_FILE = DLZDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1510,7 +1528,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Hyphenate_CN\"",
 				);
 				INFOPLIST_FILE = DLZDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

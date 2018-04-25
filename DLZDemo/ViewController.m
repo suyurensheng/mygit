@@ -24,6 +24,7 @@
 #import "RotateVC.h"
 #import "VoiceRecogiNewVC.h"
 #import "GrainVC.h"
+#import "ARVC.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,EMCallManagerDelegate>{
 
@@ -38,7 +39,7 @@
     [super viewDidLoad];
     
     self.title=@"首页";
-    _source=@[@"通话",@"切换账号",@"地图",@"聊天",@"渲染",@"蓝牙",@"直播",@"相册",@"我的电影",@"二维码",@"数据库",@"下载",@"旋转",@"语音识别",@"粒子效果"];
+    _source=@[@"通话",@"切换账号",@"地图",@"聊天",@"渲染",@"蓝牙",@"直播",@"相册",@"我的电影",@"二维码",@"数据库",@"下载",@"旋转",@"语音识别",@"粒子效果",@"AR"];
     
     _listTable=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStylePlain];
     _listTable.delegate=self;
@@ -140,6 +141,10 @@
     }else if ([test isEqualToString:@"粒子效果"]){
         
         GrainVC *cvc=[[GrainVC alloc]init];
+        [self.navigationController pushViewController:cvc animated:YES];
+    }else if ([test isEqualToString:@"AR"]){
+        
+        ARVC *cvc=[[ARVC alloc]init];
         [self.navigationController pushViewController:cvc animated:YES];
     }
 }
