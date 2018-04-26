@@ -19,6 +19,8 @@ pod 'AMap3DMap’
 pod 'SDWebImage'
 #瀑布流布局
 pod 'DLZWaterFallLayout'
+pod 'DLZkeyChain'
+
 
 pod 'ZBarSDK'
 end
