@@ -508,6 +508,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BC3E4BB2092B76F0003C3DE /* touchid */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = touchid;
+			sourceTree = "<group>";
+		};
 		8E032B891FBC04D30057F9A2 /* 相册 */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,6 +566,7 @@
 				8E74282F2079F0EC00C7A256 /* 语音识别 */,
 				8E175CC320872B1500FA7B92 /* 粒子效果 */,
 				8E5CB23B208996EC00D2EAA4 /* AR */,
+				1BC3E4BB2092B76F0003C3DE /* touchid */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -1474,7 +1482,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Hyphenate_CN\"",
 				);
 				INFOPLIST_FILE = DLZDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1528,7 +1536,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Hyphenate_CN\"",
 				);
 				INFOPLIST_FILE = DLZDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

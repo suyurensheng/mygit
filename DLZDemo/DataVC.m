@@ -9,10 +9,25 @@
 #import "DataVC.h"
 #import "SqliteManager.h"
 #import "ApplicationUtils.h"
+#import <LocalAuthentication/LocalAuthentication.h>
+
+@implementation DataEntity
+-(void)setValue:(id)value forUndefinedKey:(nonnull NSString *)key{
+}
+-(void)setValue:(id)value forKey:(NSString *)key{
+    if ([key isEqualToString:@"id"]) {
+        _uid=[value integerValue];
+    }else{
+        [super setValue:value forKey:key];
+    }
+}
+@end
+
 @interface DataVC ()<UITableViewDelegate,UITableViewDataSource>{
     
     NSArray *_source;
-    NSDictionary *_seldIc;
+    NSArray *_secAarray;
+    DataEntity *_seldIc;
 }
 
 @end
@@ -22,13 +37,70 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self creat];
-    [self getData];
+    LAContext *context=[[LAContext alloc]init];
+    BOOL canuse=[context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:nil];
+    context.localizedFallbackTitle=@"fallback";
+    context.localizedReason=@"为什么使用";
+    context.localizedCancelTitle=@"取消使用";
+    if (canuse) {
+        NSLog(@"touchid可用");
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@"为什么使用呢？" reply:^(BOOL success, NSError * _Nullable error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (success) {
+                    NSLog(@"touchid验证成功");
+                    [self creat];
+                    [self getData];
+                }else{
+                    switch (error.code) {
+                        case LAErrorUserFallback:{
+                            NSLog(@"用户选择输入密码");
+                            break;
+                        }
+                        case LAErrorAuthenticationFailed:{
+                            NSLog(@"验证失败");
+                            break;
+                        }
+                        case LAErrorUserCancel:{
+                            NSLog(@"用户取消");
+                            break;
+                        }
+                        case LAErrorSystemCancel:{
+                            NSLog(@"系统取消");
+                            break;
+                        }
+                            //以下三种情况如果提前检测TouchID是否可用就不会出现
+                        case LAErrorPasscodeNotSet:{
+                            break;
+                        }
+                        case LAErrorBiometryNotAvailable:{
+                            break;
+                        }
+                        case LAErrorBiometryNotEnrolled:{
+                            break;
+                        }
+                            
+                        default:
+                            break;
+                    }
+                }
+            });
+        }];
+    }else{
+        NSLog(@"touchid不可用");
+    }
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     return _source.count;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return [[_source objectAtIndex:section] count];
+}
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    
+    return [_secAarray objectAtIndex:section];
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -36,13 +108,13 @@
     if (!cell) {
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cellid"];
     }
-    NSDictionary *dic=[_source objectAtIndex:indexPath.row];
-    cell.textLabel.text=[NSString stringWithFormat:@"%@      %@      %@         %@",dic[@"id"],dic[@"name"],dic[@"age"],dic[@"cityname"]];
+    DataEntity *info=[[_source objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    cell.textLabel.text=[NSString stringWithFormat:@"%ld      %@      %@         %@",info.uid,info.name,info.age,info.cityname];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    _seldIc=[_source objectAtIndex:indexPath.row];
+    _seldIc=[[_source objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -62,9 +134,47 @@
     
     [[SqliteManager sharedSqlite] getInfoDb:@"user" dbkey:@"address" relateDb:@"city" relatedbkey:@"cityid" complete:^(NSArray *list) {
         NSLog(@"data=%@",list);
-        _source=list;
-        [_list reloadData];
+        NSMutableArray *demo=[[NSMutableArray alloc]init];
+        for (NSDictionary *dic in list) {
+            DataEntity *entity=[[DataEntity alloc]init];
+            [entity setValuesForKeysWithDictionary:dic];
+            [demo addObject:entity];
+        }
+        [self careAboutList:demo];
     }];
+}
+
+-(void)careAboutList:(NSArray*)list{
+    
+    NSMutableArray * sections = [[NSMutableArray alloc] init];
+    NSMutableArray * sources = [[NSMutableArray alloc] init];
+    
+    UILocalizedIndexedCollation *location=[UILocalizedIndexedCollation currentCollation];
+    NSMutableArray * secArray=[NSMutableArray arrayWithArray:location.sectionTitles];
+    
+    NSMutableArray *demoArray=[[NSMutableArray alloc]init];
+    for (NSInteger i=0; i<secArray.count; i++) {
+        NSMutableArray *array=[[NSMutableArray alloc]init];
+        [demoArray addObject:array];
+    }
+    for (DataEntity *info in list) {
+        NSInteger index=[location sectionForObject:info collationStringSelector:@selector(name)];
+        [demoArray[index] addObject:info];
+    }
+    for (NSInteger i=0; i<secArray.count; i++) {
+        NSMutableArray *array=demoArray[i];
+        NSArray *sort=[location sortedArrayFromArray:array collationStringSelector:@selector(name)];
+        demoArray[i]=sort;
+    }
+    for (NSInteger i=0; i<demoArray.count; i++) {
+        if ([[demoArray objectAtIndex:i] count]) {
+            [sections addObject:[secArray objectAtIndex:i]];
+            [sources addObject:[demoArray objectAtIndex:i]];
+        }
+    }
+    _secAarray=sections;
+    _source=sources;
+    [_list reloadData];
 }
 -(void)creat{
     [[SqliteManager sharedSqlite] creatTableWithName:@"user" primaryKey:@"id" otherKeys:@{@"name":@"text",@"age":@"integer",@"head":@"text",@"address":@"integer"} complete:^(BOOL isOk) {
@@ -96,7 +206,7 @@
 
 - (IBAction)deleteData:(id)sender {
     if (_seldIc) {
-        [[SqliteManager sharedSqlite] deleteDb:@"user" option:@{@"id":_seldIc[@"id"]} complete:^(BOOL result) {
+        [[SqliteManager sharedSqlite] deleteDb:@"user" option:@{@"id":@(_seldIc.uid)} complete:^(BOOL result) {
             NSLog(result?@"删除成功":@"删除失败");
             if (result) {
                 _seldIc=nil;

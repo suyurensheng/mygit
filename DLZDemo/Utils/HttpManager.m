@@ -113,13 +113,13 @@
         if (data.length>IMAGE_SIZE_MAX) {
             CGSize imageSize=image.size;
             
-            if (imageSize.height>1000||imageSize.width>1000) {
+            if (imageSize.height>IMAGE_SIZE_MAX_H_W||imageSize.width>IMAGE_SIZE_MAX_H_W) {
                 if (imageSize.height>imageSize.width) {//竖图
-                    imageSize.width=imageSize.width*1000/imageSize.height;
-                    imageSize.height=1000;
+                    imageSize.width=imageSize.width*IMAGE_SIZE_MAX_H_W/imageSize.height;
+                    imageSize.height=IMAGE_SIZE_MAX_H_W;
                 }else{//横图或方图
-                    imageSize.height=imageSize.height*1000/imageSize.width;
-                    imageSize.width=1000;
+                    imageSize.height=imageSize.height*IMAGE_SIZE_MAX_H_W/imageSize.width;
+                    imageSize.width=IMAGE_SIZE_MAX_H_W;
                 }
             }
             UIImage *upimage=[ApplicationUtils scaleFromImage:image toSize:imageSize];

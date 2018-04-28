@@ -42,6 +42,7 @@
 #endif
 
 #define IMAGE_SIZE_MAX  1024*400.0f
+#define IMAGE_SIZE_MAX_H_W  1920
 
 
 #endif /* Commdefine_h */

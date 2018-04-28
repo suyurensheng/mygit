@@ -75,7 +75,9 @@
 //            NSLog(@"添加成功");
 //        }
 //    }];
-    NSString *test=[self test];
+    [self test];
+    
+    
     return YES;
 }
 -(NSString*)test{
@@ -89,8 +91,31 @@
     //        range=[test rangeOfComposedCharacterSequenceAtIndex:i];
     //        DLog("test=%@",[test substringWithRange:range]);
     //    }
-    NSAssert(YES, @"测试");
+ //   NSAssert(NO, @"测试");
 //    NSParameterAssert(NO);
+    dispatch_queue_t queue=dispatch_queue_create("com.updatedata", NULL);//串行
+    dispatch_queue_t queue2=dispatch_queue_create("com.updatedata2", NULL);//串行
+
+//    dispatch_queue_t queue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);//并行
+//    dispatch_queue_t queue=dispatch_get_main_queue();//主线程
+
+    NSArray *test=@[@"10000000",@"10",@"10000"];
+    for (NSInteger i=0; i<test.count; i++) {
+        dispatch_async(queue, ^{
+            dispatch_async(queue2, ^{
+                NSInteger num=[test[i] integerValue];
+                NSInteger start=0;
+                do {
+                    start++;
+                } while (start<=num);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSLog(@"quene2=%ld",(long)i);
+                });
+            });
+            NSLog(@"quene1=%ld",(long)i);
+        });
+    }
+    
     return @"haha";
 }
 

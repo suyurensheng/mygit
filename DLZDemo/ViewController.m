@@ -38,8 +38,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title=@"首页";
-    _source=@[@"通话",@"切换账号",@"地图",@"聊天",@"渲染",@"蓝牙",@"直播",@"相册",@"我的电影",@"二维码",@"数据库",@"下载",@"旋转",@"语音识别",@"粒子效果",@"AR"];
+    self.title=@"功能列表";
+//    _source=@[@"通话",@"切换账号",@"地图",@"聊天",@"渲染",@"蓝牙",@"直播",@"相册",@"我的电影",@"二维码",@"数据库",@"下载",@"旋转",@"语音识别",@"粒子效果",@"AR"];
+    _source=@[@"地图",@"渲染",@"蓝牙",@"直播",@"相册",@"我的电影",@"二维码",@"数据库",@"下载",@"旋转",@"语音识别",@"粒子效果",@"AR"];
+
     
     _listTable=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStylePlain];
     _listTable.delegate=self;
