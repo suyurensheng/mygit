@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B480297209C4B9D00276212 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B480292209C4B9B00276212 /* 4.jpg */; };
+		1B480298209C4B9D00276212 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B480293209C4B9C00276212 /* 5.jpg */; };
+		1B480299209C4B9D00276212 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B480294209C4B9C00276212 /* 2.jpg */; };
+		1B48029A209C4B9D00276212 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B480295209C4B9C00276212 /* 1.jpg */; };
+		1B48029B209C4B9D00276212 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B480296209C4B9D00276212 /* 3.jpg */; };
 		8E032B8F1FBD63180057F9A2 /* AlbumUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E032B8E1FBD63180057F9A2 /* AlbumUtils.m */; };
 		8E1527681F0DEA2E009011FE /* UIImageView+DlzImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1527671F0DEA2E009011FE /* UIImageView+DlzImage.m */; };
 		8E175CC7208736ED00FA7B92 /* GrainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E175CC6208736ED00FA7B92 /* GrainVC.m */; };
@@ -120,6 +125,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B480292209C4B9B00276212 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		1B480293209C4B9C00276212 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		1B480294209C4B9C00276212 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		1B480295209C4B9C00276212 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		1B480296209C4B9D00276212 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		2BCD994B0215788E0044137B /* Pods-DLZDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DLZDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DLZDemo/Pods-DLZDemo.release.xcconfig"; sourceTree = "<group>"; };
 		2E8192FCF54005FCD83980A8 /* libPods-DLZDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DLZDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E032B8D1FBD63180057F9A2 /* AlbumUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlbumUtils.h; sourceTree = "<group>"; };
@@ -508,13 +518,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1BC3E4BB2092B76F0003C3DE /* touchid */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = touchid;
-			sourceTree = "<group>";
-		};
 		8E032B891FBC04D30057F9A2 /* 相册 */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,7 +569,6 @@
 				8E74282F2079F0EC00C7A256 /* 语音识别 */,
 				8E175CC320872B1500FA7B92 /* 粒子效果 */,
 				8E5CB23B208996EC00D2EAA4 /* AR */,
-				1BC3E4BB2092B76F0003C3DE /* touchid */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -1007,6 +1009,11 @@
 				8E8239B91EF229D600E538FE /* DataUtils.m */,
 				8E8239CA1EF230A800E538FE /* ErrorEntity.h */,
 				8E8239CB1EF230A800E538FE /* ErrorEntity.m */,
+				1B480295209C4B9C00276212 /* 1.jpg */,
+				1B480294209C4B9C00276212 /* 2.jpg */,
+				1B480296209C4B9D00276212 /* 3.jpg */,
+				1B480292209C4B9B00276212 /* 4.jpg */,
+				1B480293209C4B9C00276212 /* 5.jpg */,
 				8E8239CC1EF230A800E538FE /* HttpManager.h */,
 				8E8239CD1EF230A800E538FE /* HttpManager.m */,
 				8E1527661F0DEA2E009011FE /* UIImageView+DlzImage.h */,
@@ -1184,9 +1191,12 @@
 				8E74282A2079B6B400C7A256 /* RotateVC.xib in Resources */,
 				8ED71F9D1ED97C15003CFCA3 /* BlueVC.xib in Resources */,
 				8EF546B9205F95FE00E8A223 /* DataVC.xib in Resources */,
+				1B480297209C4B9D00276212 /* 4.jpg in Resources */,
 				8E39591A1DB8B63300BA180A /* LaunchScreen.storyboard in Resources */,
 				8E39592C1DB8B70200BA180A /* ShowView.xib in Resources */,
+				1B48029A209C4B9D00276212 /* 1.jpg in Resources */,
 				8EE708141FF0CAD300B89457 /* AlbumCheckView.xib in Resources */,
+				1B48029B209C4B9D00276212 /* 3.jpg in Resources */,
 				8EE708131FF0CAD300B89457 /* AlbumVC.xib in Resources */,
 				8EB001041DD06CA400921A25 /* VoiceView.xib in Resources */,
 				8E72E7D72071F79200CF8F8B /* ding.wav in Resources */,
@@ -1198,10 +1208,12 @@
 				8EB000FF1DD06CA400921A25 /* ring.wav in Resources */,
 				8E74282E2079E81A00C7A256 /* hahah.JPG in Resources */,
 				8EB001001DD06CA400921A25 /* ringback.wav in Resources */,
+				1B480299209C4B9D00276212 /* 2.jpg in Resources */,
 				8E835944207AFFD500091FCF /* VoiceRecogiNewVC.xib in Resources */,
 				8E74282C2079B90100C7A256 /* timg.jpeg in Resources */,
 				8E39592A1DB8B70200BA180A /* LoginVC.xib in Resources */,
 				8E3959151DB8B63300BA180A /* Main.storyboard in Resources */,
+				1B480298209C4B9D00276212 /* 5.jpg in Resources */,
 				8E22F36C1FD8E4560032DF32 /* AlbumCell.xib in Resources */,
 				8E835947207B31AE00091FCF /* voicetest.m4a in Resources */,
 			);

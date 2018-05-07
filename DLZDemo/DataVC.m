@@ -40,7 +40,6 @@
     LAContext *context=[[LAContext alloc]init];
     BOOL canuse=[context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:nil];
     context.localizedFallbackTitle=@"fallback";
-    context.localizedReason=@"为什么使用";
     context.localizedCancelTitle=@"取消使用";
     if (canuse) {
         NSLog(@"touchid可用");

@@ -115,7 +115,15 @@
             NSLog(@"quene1=%ld",(long)i);
         });
     }
-    
+    NSMutableArray *array=[[NSMutableArray alloc]init];
+    for (NSInteger i=1; i<=5; i++) {
+        [array addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpg",i]]];
+    }
+    [HttpManager uploadImages:array progress:^(CGFloat precent) {
+        NSLog(@"progress=%f",precent);
+    } complete:^(ErrorEntity *error, NSArray *imageslist) {
+        NSLog(@"images=%@",imageslist);
+    }];
     return @"haha";
 }
 

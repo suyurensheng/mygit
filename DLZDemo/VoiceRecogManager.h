@@ -13,6 +13,10 @@
 
 +(instancetype)sharedManager;
 
-+(void)startRecogi;
+-(void)startRecognizeResult:(void(^)(ErrorEntity *error,NSString *result))recognize;
+
+-(void)endRecognize;
+
+-(void)recognizeLocal:(NSURL*)source result:(void(^)(ErrorEntity *error,NSString *result))recognize;
 
 @end

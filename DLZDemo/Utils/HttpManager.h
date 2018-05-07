@@ -23,6 +23,9 @@
 -(void)postWithURLString:(NSString*)urlString param:(NSDictionary*)param completion:(void(^)(id responseObject,ErrorEntity *error))completion;
 
 /**上传图片到服务器*/
++(void)uploadImages:(NSArray*)images progress:(void(^)(CGFloat precent))progress complete:(void(^)(ErrorEntity *error,NSArray *imageslist))complete;
+
+/**上传图片到服务器*/
 +(void)uploadImage:(UIImage*)image progress:(void(^)(CGFloat precent))progress complete:(void(^)(ErrorEntity *error,NSString *imageURL ,NSString *imageid))complete;
 
 /**获取基础参数*/

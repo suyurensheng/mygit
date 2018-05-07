@@ -17,6 +17,12 @@
 #include <arpa/inet.h>
 #include <net/if.h>
 
+#define BASE_URL @"http://101.200.50.153:8080/xy"
+
+#define IMAGE_MAX_LENGTH  1024*50.0f
+
+#define IMAGE_MAX_SIZE  1080
+
 @interface HttpManager(){
 
     void (^_complete) (CGFloat speedin , CGFloat speedout);
@@ -41,7 +47,7 @@
         securityPolicy.validatesDomainName = NO;
         _manager.securityPolicy = securityPolicy;
         //设置超时时间
-        [_manager.requestSerializer setTimeoutInterval:10];
+        [_manager.requestSerializer setTimeoutInterval:20];
     }
     return self;
 }
@@ -58,7 +64,7 @@
 
 -(void)postWithURLString:(NSString *)urlString param:(NSDictionary *)param completion:(void (^)(id, ErrorEntity *))completion{
     
-    NSString *url=[@"baseurl" stringByAppendingString:urlString];
+    NSString *url=[BASE_URL stringByAppendingString:urlString];
     DLog(@"request=%@",url);
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc]initWithDictionary:[HttpManager getBaseParams]];
@@ -97,6 +103,102 @@
 +(NSDictionary*)getBaseParams{
 
     return @{@"userid":@"123"};
+}
++(void)uploadImages:(NSArray *)images progress:(void (^)(CGFloat))progress complete:(void (^)(ErrorEntity *, NSArray *))complete{
+    
+    NSMutableArray *_taskList=[[NSMutableArray alloc] initWithArray:images];
+    NSString *url=[BASE_URL stringByAppendingString:@"/image/api/saveImage.do?"];
+    __block NSInteger _taskCount=0;
+    __block BOOL hasFail=NO;
+
+    for (NSInteger i=0; i<images.count; i++) {
+        UIImage *image=[images objectAtIndex:i];
+
+        if ([image isKindOfClass:[UIImage class]]) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                NSInteger index=i;
+                NSData *data=[self dealWithData:image];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSURLSessionDataTask *task=[[HttpManager sharedHttpManager].manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+                        
+                        NSString * fileName = [NSString stringWithFormat:@"%@.png",[ApplicationUtils getCurrentTime]];
+                        [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"image/png"];
+                        
+                    } progress:^(NSProgress * _Nonnull uploadProgress) {
+                        NSInteger _hasSent=0;
+                        NSInteger _allSent=0;
+                        for (NSURLSessionDataTask *task in _taskList) {
+                            if ([task isKindOfClass:[NSURLSessionDataTask class]]) {
+                                _hasSent+=task.countOfBytesSent;
+                                _allSent+=task.countOfBytesExpectedToSend;
+                            }
+                        }
+                        progress(_hasSent/_allSent);
+                    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                        _taskCount--;
+                        id result = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+                        for (NSInteger j=0;j<_taskList.count;j++) {
+                            NSURLSessionDataTask *ta=[_taskList objectAtIndex:j];
+                            if ([ta isKindOfClass:[NSURLSessionDataTask class]]&&task.taskIdentifier==ta.taskIdentifier) {
+                                NSLog(@"success_index=%ld",j);
+                                [_taskList replaceObjectAtIndex:j withObject:result[@"imageurl"]];
+                                break;
+                            }
+                        }
+                        if (_taskCount==0) {
+                            if (hasFail) {
+                                complete([ErrorEntity errorInfoWithCode:100 message:@"上传失败"],_taskList);
+                            }else{
+                                complete([ErrorEntity errorInfoWithCode:0 message:@"上传成功"],_taskList);
+                            }
+                        }
+                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                        _taskCount--;
+                        hasFail=YES;
+                        for (NSInteger j=0;j<_taskList.count;j++) {
+                            NSURLSessionDataTask *ta=[_taskList objectAtIndex:j];
+                            if ([ta isKindOfClass:[NSURLSessionDataTask class]]&&task.taskIdentifier==ta.taskIdentifier) {
+                                NSLog(@"error_index=%ld",j);
+                                [_taskList replaceObjectAtIndex:j withObject:[images objectAtIndex:j]];
+                                break;
+                            }
+                        }
+                        if (_taskCount==0) {
+                            complete([ErrorEntity errorInfoWithCode:100 message:@"上传失败"],_taskList);
+                        }
+                    }];
+                    [_taskList replaceObjectAtIndex:index withObject:task];
+                    _taskCount++;
+                });
+            });
+        }
+    }
+}
++(NSData*)dealWithData:(UIImage*)image{
+    
+    NSData * data =UIImageJPEGRepresentation(image, 1);
+    if (data.length>IMAGE_MAX_LENGTH) {
+        CGSize imageSize=image.size;
+        if (imageSize.height>IMAGE_MAX_SIZE||imageSize.width>IMAGE_MAX_SIZE) {
+            if (imageSize.height>imageSize.width) {//竖图
+                imageSize.height=imageSize.height*IMAGE_MAX_SIZE/imageSize.width;
+                imageSize.width=IMAGE_MAX_SIZE;
+            }else{//横图或方图
+                imageSize.width=imageSize.width*IMAGE_MAX_SIZE/imageSize.height;
+                imageSize.height=IMAGE_MAX_SIZE;
+            }
+        }
+        UIImage *upimage=[ApplicationUtils scaleFromImage:image toSize:imageSize];
+        data = UIImageJPEGRepresentation(upimage, 1);
+        
+        CGFloat bei=1.0f;
+        while (data.length>IMAGE_MAX_LENGTH&&bei>0) {
+            bei-=0.01;
+            data=UIImageJPEGRepresentation(upimage, bei);
+            DLog(@"bei=====%f test=====%ld",bei,data.length);
+        }
+    }
+    return data;
 }
 +(void)uploadImage:(UIImage *)image progress:(void (^)(CGFloat))progress complete:(void (^)(ErrorEntity *, NSString *,NSString *))complete{
     
