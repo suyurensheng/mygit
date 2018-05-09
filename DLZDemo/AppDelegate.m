@@ -21,6 +21,7 @@
 #import "CalendarManager.h"
 #import "BaseNavVC.h"
 #import <DLZkeyChain/DLZKeyChain.h>
+#import "ApplicationUtils.h"
 
 #define IOS7      [[[UIDevice currentDevice] systemVersion] floatValue]>=7&&[[[UIDevice currentDevice] systemVersion] floatValue]<8
 #define IOS8      [[[UIDevice currentDevice] systemVersion] floatValue]>=8&&[[[UIDevice currentDevice] systemVersion] floatValue]<9
@@ -56,12 +57,7 @@
             }
         }];
     }
-//    else{
-//        UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge |
-//        UIRemoteNotificationTypeSound |
-//        UIRemoteNotificationTypeAlert;
-//        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
-//    }
+
     [[CallManager sharedManager] began];
     
     
@@ -81,49 +77,64 @@
     return YES;
 }
 -(NSString*)test{
-    //    NSString *test=@"➑hg🐰哈哈";
-    //    BOOL hasemoj=[ApplicationUtils hasEmoji:test];
-    //    test=[ApplicationUtils disable_emoji:test];
-    //    DLog("length=%lu",(unsigned long)test.length);
-    //
-    //    NSRange range;
-    //    for (NSInteger i=0; i<test.length; i+=range.length) {
-    //        range=[test rangeOfComposedCharacterSequenceAtIndex:i];
-    //        DLog("test=%@",[test substringWithRange:range]);
-    //    }
+//        NSString *test=@"➑hg🐰哈哈";
+//        BOOL hasemoj=[ApplicationUtils hasEmoji:test];
+//        test=[ApplicationUtils disable_emoji:test];
+//        DLog("length=%lu",(unsigned long)test.length);
+//
+//        NSRange range;
+//        for (NSInteger i=0; i<test.length; i+=range.length) {
+//            range=[test rangeOfComposedCharacterSequenceAtIndex:i];
+//            DLog("test=%@",[test substringWithRange:range]);
+//        }
+    
+    
  //   NSAssert(NO, @"测试");
 //    NSParameterAssert(NO);
-    dispatch_queue_t queue=dispatch_queue_create("com.updatedata", NULL);//串行
-    dispatch_queue_t queue2=dispatch_queue_create("com.updatedata2", NULL);//串行
-
-//    dispatch_queue_t queue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);//并行
-//    dispatch_queue_t queue=dispatch_get_main_queue();//主线程
-
-    NSArray *test=@[@"10000000",@"10",@"10000"];
-    for (NSInteger i=0; i<test.count; i++) {
-        dispatch_async(queue, ^{
-            dispatch_async(queue2, ^{
-                NSInteger num=[test[i] integerValue];
-                NSInteger start=0;
-                do {
-                    start++;
-                } while (start<=num);
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"quene2=%ld",(long)i);
-                });
-            });
-            NSLog(@"quene1=%ld",(long)i);
-        });
-    }
-    NSMutableArray *array=[[NSMutableArray alloc]init];
-    for (NSInteger i=1; i<=5; i++) {
-        [array addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpg",i]]];
-    }
-    [HttpManager uploadImages:array progress:^(CGFloat precent) {
-        NSLog(@"progress=%f",precent);
-    } complete:^(ErrorEntity *error, NSArray *imageslist) {
-        NSLog(@"images=%@",imageslist);
+    
+    
+//    dispatch_queue_t queue=dispatch_queue_create("com.updatedata", NULL);//串行
+//    dispatch_queue_t queue2=dispatch_queue_create("com.updatedata2", NULL);//串行
+//
+////    dispatch_queue_t queue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);//并行
+////    dispatch_queue_t queue=dispatch_get_main_queue();//主线程
+//
+//    NSArray *test=@[@"10000000",@"10",@"10000"];
+//    for (NSInteger i=0; i<test.count; i++) {
+//        dispatch_async(queue, ^{
+//            dispatch_async(queue2, ^{
+//                NSInteger num=[test[i] integerValue];
+//                NSInteger start=0;
+//                do {
+//                    start++;
+//                } while (start<=num);
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    NSLog(@"quene2=%ld",(long)i);
+//                });
+//            });
+//            NSLog(@"quene1=%ld",(long)i);
+//        });
+//    }
+    
+    
+//    NSMutableArray *array=[[NSMutableArray alloc]init];
+//    for (NSInteger i=1; i<=5; i++) {
+//        [array addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpg",i]]];
+//    }
+    NSArray *array=@[@(21),@(3),@(24),@(65),@(76),@(24),@(4)];
+    NSArray *result=[array sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1 compare:obj2];
     }];
+    NSLog(@"result=%@",result);
+    result=[array sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj2 compare:obj1   ];
+    }];
+    NSLog(@"result=%@",result);
+//    [HttpManager uploadImages:array progress:^(CGFloat precent) {
+//        NSLog(@"progress=%f",precent);
+//    } complete:^(ErrorEntity *error, NSArray *imageslist) {
+//        NSLog(@"images=%@",imageslist);
+//    }];
     return @"haha";
 }
 
@@ -183,9 +194,6 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     NSLog(@"程序关闭2");
 }
-//-(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
-//
-//    return UIInterfaceOrientationMaskAllButUpsideDown;
-//}
+
 
 @end
