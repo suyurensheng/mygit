@@ -7,8 +7,7 @@
 //
 
 #import "DataVC.h"
-#import "SqliteManager.h"
-#import "ApplicationUtils.h"
+#import "DLZUtils/SqliteManager/SqliteManager.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 
 @implementation DataEntity

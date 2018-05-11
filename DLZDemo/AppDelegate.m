@@ -10,18 +10,17 @@
 
 #import "AppDelegate.h"
 
-#import "CallManager.h"
+#import "DLZUtils/CallManger/CallManager.h"
 
 #import <UserNotifications/UserNotifications.h>
 
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import "ViewController.h"
 
-#import "HttpManager.h"
+#import "DLZUtils/HttpManager/HttpManager.h"
 #import "CalendarManager.h"
 #import "BaseNavVC.h"
 #import <DLZkeyChain/DLZKeyChain.h>
-#import "ApplicationUtils.h"
 
 #define IOS7      [[[UIDevice currentDevice] systemVersion] floatValue]>=7&&[[[UIDevice currentDevice] systemVersion] floatValue]<8
 #define IOS8      [[[UIDevice currentDevice] systemVersion] floatValue]>=8&&[[[UIDevice currentDevice] systemVersion] floatValue]<9
@@ -135,6 +134,9 @@
 //    } complete:^(ErrorEntity *error, NSArray *imageslist) {
 //        NSLog(@"images=%@",imageslist);
 //    }];
+    [[DataUtils sharedDataUtils] getMemoryStatus:^(double available, double used) {
+        NSLog(@"available=%f,used=%f",available,used);
+    }];
     return @"haha";
 }
 

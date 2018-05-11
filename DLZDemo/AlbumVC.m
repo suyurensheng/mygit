@@ -7,10 +7,10 @@
 //
 
 #import "AlbumVC.h"
-#import "AlbumUtils.h"
+#import "DLZUtils/DLZAlbum/AlbumUtils.h"
 #import <DLZWaterFallLayout.h>
-#import "AlbumCell.h"
-#import "AlbumCheckView.h"
+#import "DLZUtils/DLZAlbum/AlbumCell.h"
+#import "DLZUtils/DLZAlbum/AlbumCheckView.h"
 
 @interface AlbumVC ()<UICollectionViewDelegate,UICollectionViewDataSource,DLZWaterFallLayoutDelegate,AlbumCellDelegate,AlbumCheckViewDelegate>{
     

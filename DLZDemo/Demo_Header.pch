@@ -13,11 +13,13 @@
 
 #define MAIN_SCREAM_HEIGHT  [UIScreen mainScreen].bounds.size.height
 
-#import "ErrorEntity.h"
+#import "DLZUtils/ErrorEntity.h"
 
-#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "DLZUtils/FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "DLZUtils/ApplicationUtils.h"
+#import "DLZUtils/DataUtils.h"
 
 #import "GPUImage.h"
-#import "UIImageView+DLZPlus.h"
+#import "DLZUtils/DLZAlbum/UIImageView+DLZPlus.h"
 #endif

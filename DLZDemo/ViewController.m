@@ -9,8 +9,7 @@
 #import "ViewController.h"
 #import "EMClient+Call.h"
 #import "LoginVC.h"
-#import "VoiceView.h"
-#import "CallManager.h"
+#import "DLZUtils/CallManger/CallManager.h"
 #import "MapVC.h"
 #import "ChatVC.h"
 #import "XuanranViewController.h"
@@ -26,11 +25,7 @@
 #import "GrainVC.h"
 #import "ARVC.h"
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,EMCallManagerDelegate>{
-
-    VoiceView *_voice;
-}
-
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,EMCallManagerDelegate>
 @end
 
 @implementation ViewController

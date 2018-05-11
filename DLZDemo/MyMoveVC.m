@@ -95,7 +95,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString *path=[_filePath stringByAppendingPathComponent:[_list objectAtIndex:indexPath.row]];
+//    NSString *path=[_filePath stringByAppendingPathComponent:[_list objectAtIndex:indexPath.row]];
     
 }
 - (void)didReceiveMemoryWarning {
