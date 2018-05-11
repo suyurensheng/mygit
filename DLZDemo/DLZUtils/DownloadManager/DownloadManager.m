@@ -7,7 +7,6 @@
 //
 
 #import "DownloadManager.h"
-#import "DataUtils.h"
 
 #define DOWN_LIST_KEY_ALL  @"downalllistkey"
 #define DOWN_LIST_KEY_WAIT  @"downwaitlistkey"

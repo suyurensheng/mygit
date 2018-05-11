@@ -150,7 +150,7 @@
         NSLog(@"语音识别不可用");
     }
 }
-//NSURL *url =[[NSBundle mainBundle] URLForResource:@"voicetest.m4a" withExtension:nil];
+
 -(void)recognizeLocal:(NSURL *)source result:(void (^)(ErrorEntity *, NSString *))recognize{
     
     NSAssert(source, @"资源不存在");
