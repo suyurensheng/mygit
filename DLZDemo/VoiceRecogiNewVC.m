@@ -21,20 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [[VoiceRecogManager sharedManager] startRecognizeResult:^(ErrorEntity *error, NSString *result) {
-//        if (error.code==0) {
-//            [self newWordGet:result];
-//        }else{
-//            [self newWordGet:error.message];
-//        }
-//    }];
-    [[VoiceRecogManager sharedManager] recognizeLocal:[[NSBundle mainBundle] URLForResource:@"voicetest.m4a" withExtension:nil] result:^(ErrorEntity *error, NSString *result) {
+    [[VoiceRecogManager sharedManager] startRecognizeResult:^(ErrorEntity *error, NSString *result) {
         if (error.code==0) {
             [self newWordGet:result];
         }else{
             [self newWordGet:error.message];
         }
     }];
+//    [[VoiceRecogManager sharedManager] recognizeLocal:[[NSBundle mainBundle] URLForResource:@"voicetest.m4a" withExtension:nil] result:^(ErrorEntity *error, NSString *result) {
+//        if (error.code==0) {
+//            [self newWordGet:result];
+//        }else{
+//            [self newWordGet:error.message];
+//        }
+//    }];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
